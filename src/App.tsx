@@ -1,4 +1,6 @@
-import './App.css';
+import './styles/App.scss';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/700.css';
 import styled from 'styled-components';
 
 
@@ -15,5 +17,5 @@ export default App;
 const Title = styled.h1`
     font-size: 1.5em;
     text-align: center;
-    color: #e91e63;
+    //color: #e91e63;
 `;
