@@ -1,0 +1,16 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  padding: 12px 24px;
+
+  background-color: gray;
+  border-bottom: darkred;
+  z-index: -100;
+}
