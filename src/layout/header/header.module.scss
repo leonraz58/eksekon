@@ -5,12 +5,20 @@
   left: 0;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 
   width: 100%;
-  padding: 12px 24px;
+  padding-right: 20px;
 
-  background-color: gray;
-  border-bottom: darkred;
-  z-index: -100;
+  background-color: white;
+
+  border: 1px solid red;
+  //z-index: -100;
+
+  opacity: 0.9;
+}
+
+.logo {
+  height: 80px;
 }
