@@ -4,28 +4,28 @@ import s from './menu.module.scss'
 
 const items = [
     {
-        title: 'О нас',
-        href: 'about'
+        title: 'Главная',
+        href: '/'
     },
+    // {
+    //     title: 'О нас',
+    //     href: '#'
+    // },
     {
         title: 'Стулья',
         href: 'chairs'
     },
     {
-        title: 'Столы',
-        href: 'tables'
+        title: 'Страница3',
+        href: '#'
     },
     {
-        title: 'Контакты',
-        href: 'contacts'
+        title: 'Страница4',
+        href: '#'
     },
     {
-        title: 'Отзывы',
-        href: 'responses'
-    },
-    {
-        title: 'Заказать',
-        href: 'order'
+        title: 'Страница5',
+        href: '#'
     }
 ]
 

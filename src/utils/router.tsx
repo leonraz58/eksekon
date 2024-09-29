@@ -1,10 +1,11 @@
 import {createBrowserRouter, RouteObject} from "react-router-dom";
 import {Layout} from "../layout/layout";
 import {Chairs} from "../layout/chairs/chairs";
+import {Main} from "../layout/main/main";
 
 const publicRoutes: RouteObject[] = [
     {
-        element: <div>main page</div>,
+        element: <Main/>  ,
         path: '/',
     },
     {

@@ -4,8 +4,9 @@ import {PageContainer} from "../../components/pageContainer/pageContainer";
 
 export const Chairs = () => {
     return (
-        <section>
+        <section className={s.section}>
             <PageContainer>
+                Тут будет фильтр
                 <div className={s.cardWrapper}>
                     <Card/>
                     <Card/>
