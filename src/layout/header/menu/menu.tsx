@@ -8,6 +8,10 @@ const items = [
         href: 'about'
     },
     {
+        title: 'Стулья',
+        href: 'chairs'
+    },
+    {
         title: 'Столы',
         href: 'tables'
     },

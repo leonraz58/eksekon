@@ -1,0 +1,13 @@
+.cardWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mainwrapper {
+  width: 100%;
+  min-height: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+}
