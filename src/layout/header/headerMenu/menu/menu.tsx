@@ -1,6 +1,4 @@
 import {Link} from "react-router-dom";
-import s from './menu.module.scss'
-
 
 const items = [
     {
@@ -31,7 +29,7 @@ const items = [
 
 export const Menu = () => {
     return <nav >
-        <ul className={s.menu}>
+        <ul>
             {items.map((item, i) => {
                 return <li key={i}>
                     <Link

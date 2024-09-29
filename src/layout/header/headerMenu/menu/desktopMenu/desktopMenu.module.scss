@@ -1,0 +1,11 @@
+.desktopMenu {
+  ul {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+
+    li {
+      text-wrap: nowrap;
+    }
+  }
+}
