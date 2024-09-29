@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/eksekon/static/css/main.bd14506c.css",
-    "main.js": "/eksekon/static/js/main.a5a540dd.js",
+    "main.js": "/eksekon/static/js/main.ccfe861a.js",
     "static/js/787.91a167d8.chunk.js": "/eksekon/static/js/787.91a167d8.chunk.js",
     "static/media/main.jpeg": "/eksekon/static/media/main.c4ca073f7ff4548aafde.jpeg",
     "static/media/logo.png": "/eksekon/static/media/logo.49d53ef7c159dd930146.png",
@@ -35,11 +35,11 @@
     "static/media/roboto-greek-ext-400-normal.woff": "/eksekon/static/media/roboto-greek-ext-400-normal.16eb83b4a3b1ea994243.woff",
     "index.html": "/eksekon/index.html",
     "main.bd14506c.css.map": "/eksekon/static/css/main.bd14506c.css.map",
-    "main.a5a540dd.js.map": "/eksekon/static/js/main.a5a540dd.js.map",
+    "main.ccfe861a.js.map": "/eksekon/static/js/main.ccfe861a.js.map",
     "787.91a167d8.chunk.js.map": "/eksekon/static/js/787.91a167d8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bd14506c.css",
-    "static/js/main.a5a540dd.js"
+    "static/js/main.ccfe861a.js"
   ]
 }
