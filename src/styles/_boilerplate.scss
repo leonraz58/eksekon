@@ -52,3 +52,10 @@ body {
 
   min-width: 360px;
 }
+
+button {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
