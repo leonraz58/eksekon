@@ -20,11 +20,14 @@
 
 .title {
   margin: 14px auto;
-
 }
 
 .description {
   font-size: 14px;
+}
+
+.priceWrapper {
+  margin: 14px auto;
 }
 
 .price1 {
@@ -35,4 +38,9 @@
   font-size: 16px;
   color: #BDBDBD;
   text-decoration: line-through;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: space-between;
 }

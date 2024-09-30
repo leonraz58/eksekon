@@ -1,6 +1,7 @@
 import s from './card.module.scss'
 import image from './../../../assets/images/main.jpeg'
 import {Button} from "./button/button";
+import {ButtonCart, ButtonInfo} from "./buttons/buttonInfo";
 
 export const Card = () => {
     return (
@@ -10,9 +11,15 @@ export const Card = () => {
             <p className={s.description}>Цвет стула может быть выбран из нашего каталога тканей, в наличии более 15
                 оттенков. Для уточнения
                 информации, свяжитесь с нами удобным для Вас способом.</p>
-            <span className={s.price1}>15 000 р. </span>
-            <span className={s.price2}>26 000 р.</span>
-            <Button/>
+            <div className={s.priceWrapper}>
+                <span className={s.price1}>15 000 р. </span>
+                <span className={s.price2}>26 000 р.</span>
+            </div>
+            {/*<Button/>*/}
+            <div className={s.buttonsWrapper}>
+                <ButtonInfo/>
+                <ButtonCart/>
+            </div>
         </div>
 
     )
