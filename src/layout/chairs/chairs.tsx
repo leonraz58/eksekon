@@ -6,7 +6,12 @@ export const Chairs = () => {
     return (
         <section className={s.section}>
             <PageContainer>
-                Тут будет фильтр
+                <div className={s.filters}>
+                    <div className={s.filter}>Фильтр1</div>
+                    <div className={s.filter}>Фильтр2</div>
+                    <div className={s.filter}>Фильтр3</div>
+
+                </div>
                 <div className={s.cardWrapper}>
                     <Card/>
                     <Card/>

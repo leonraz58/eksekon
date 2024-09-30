@@ -6,6 +6,7 @@ export const BurgerButton = styled.button<{isOpen: boolean}>`
     //left: -33px;
     width: 50px;
     //height: 2px;
+    position: relative;
     z-index: 999999999;
     transform: translate(-33px, 45px);
     

@@ -26,7 +26,7 @@ const MobileMenuPopup = styled.div<{isOpen: boolean}>`
     left: 0;
     //right: 0;
     //bottom: 0;
-    z-index: -1;
+    z-index: 10;
     width: 70%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.9);
@@ -34,7 +34,7 @@ const MobileMenuPopup = styled.div<{isOpen: boolean}>`
     justify-content: center;
     align-items: center;
     transform: translateX(-100%);
-    transition: 0.8s ease-in-out;
+    transition: 0.2s ease-in-out;
     
     ul {
         display: flex;

@@ -6,7 +6,15 @@
   gap: 100px;
   color: white;
   //backdrop-filter: contrast(80%);
-  background-image: linear-gradient(to top, rgba(255,255,255,0) 40%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0.6) 100%) ;
+  background-image: linear-gradient(to top, rgba(255,255,255,0) 40%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0.6) 100%);
+  padding: 100px 0 100px;
+  
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 35px;
+
+  }
 }
 
 .mainImage {
@@ -23,14 +31,22 @@
 
 .title1 {
   font-size: 72px;
-  //margin: 0;
-  opacity: 0.8;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
 }
 
 .title2 {
  font-size: 26px;
-  opacity: 0.8;
+  opacity: 0.9;
   margin-left: 100px;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    margin-left: 20px;
+  }
 }
 
 .form1 {
