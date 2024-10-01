@@ -2,13 +2,36 @@ import s from './card.module.scss'
 import image from './../../../assets/images/main.jpeg'
 import {Button} from "../../../components/button/button";
 import {Colors} from "./colors/colors";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import './aliceCarousel.css'
 
-export const Card = () => {
+type Props = {
+    chair?: any
+    images?: any
+}
+
+export const Card = ({chair, images}: Props) => {
+
+
+
+    const items = [
+        <img src={images['yellow'][0] ?? image} alt="" className={s.cover}/>,
+        <img src={images['yellow'][1] ?? image} alt="" className={s.cover}/>,
+        <img src={images['yellow'][2] ?? image} alt="" className={s.cover}/>,
+    ];
+
     return (
         <div className={s.card}>
-            <div><img src={image} alt="" className={s.cover}/></div>
+            {/*<div>*/}
+            {/*    <img src={images['1']['yellow'][0] ?? image} alt="" className={s.cover}/>*/}
+            {/*</div>*/}
+            <AliceCarousel items={items} disableButtonsControls mouseTracking>
+
+            </AliceCarousel>
             <Colors/>
-            <h3 className={s.title}>Дизайнерский стул The Molecula Oxygen Красный (Version 2)</h3>
+
+            <h3 className={s.title}>{chair.title ?? '???'}</h3>
 
             <p className={s.description}>Цвет стула может быть выбран из нашего каталога тканей, в наличии более 15
                 оттенков. Для уточнения
