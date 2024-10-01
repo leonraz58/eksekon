@@ -1,7 +1,7 @@
 import s from './card.module.scss'
 import image from './../../../assets/images/main.jpeg'
-import {Button} from "./button/button";
 import {ButtonCart, ButtonInfo} from "./buttons/buttonInfo";
+import {Button} from "../../../components/button/button";
 
 export const Card = () => {
     return (
@@ -17,8 +17,10 @@ export const Card = () => {
             </div>
             {/*<Button/>*/}
             <div className={s.buttonsWrapper}>
-                <ButtonInfo/>
-                <ButtonCart/>
+                <Button variant={'primary'}>Подробнее</Button>
+                <Button variant={'secondary'}>Купить</Button>
+                {/*<ButtonInfo/>*/}
+                {/*<ButtonCart/>*/}
             </div>
         </div>
 
