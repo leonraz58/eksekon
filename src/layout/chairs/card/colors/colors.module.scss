@@ -1,0 +1,13 @@
+.colors {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  .color {
+    cursor: pointer;
+    font-size: 0;
+    color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 100px;
+  }
+}
