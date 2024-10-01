@@ -1,10 +1,20 @@
-.menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+.link {
+  position: relative;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -1px;
+      height: 2px;
+      background-color: #cdc8b8;
+      transition: 0.5s;
+      width: 0;
+    }
 
-  li {
-    text-wrap: nowrap;
-  }
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+
 }

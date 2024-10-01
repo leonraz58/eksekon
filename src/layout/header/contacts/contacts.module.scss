@@ -6,3 +6,9 @@
   line-height: 1;
   position: relative;
 }
+
+.contact {
+  &:hover {
+    transform: translateY(-2px);
+  }
+}

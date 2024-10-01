@@ -1,17 +1,13 @@
 import {Card} from "./card/card";
 import s from './chairs.module.scss'
 import {PageContainer} from "../../components/pageContainer/pageContainer";
+import {Filters} from "./filters/filters";
 
 export const Chairs = () => {
     return (
         <section className={s.section}>
             <PageContainer>
-                <div className={s.filters}>
-                    <div className={s.filter}>Фильтр1</div>
-                    <div className={s.filter}>Фильтр2</div>
-                    <div className={s.filter}>Фильтр3</div>
-
-                </div>
+                <Filters/>
                 <div className={s.cardWrapper}>
                     <Card/>
                     <Card/>
