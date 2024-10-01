@@ -5,6 +5,7 @@ import {Colors} from "./colors/colors";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import './aliceCarousel.css'
+import {useState} from "react";
 
 type Props = {
     chair?: any
@@ -13,13 +14,15 @@ type Props = {
 
 export const Card = ({chair, images}: Props) => {
 
+    let colors = Object.keys(images)
+
+    const [currentColor, setCurrentColor] = useState<string>(colors[0])
 
 
-    const items = [
-        <img src={images['yellow'][0] ?? image} alt="" className={s.cover}/>,
-        <img src={images['yellow'][1] ?? image} alt="" className={s.cover}/>,
-        <img src={images['yellow'][2] ?? image} alt="" className={s.cover}/>,
-    ];
+    const items = images[currentColor].map((item: string) => (
+        <img src={item ?? image} alt="" className={s.cover}/>
+    ))
+
 
     return (
         <div className={s.card}>
@@ -29,7 +32,8 @@ export const Card = ({chair, images}: Props) => {
             <AliceCarousel items={items} disableButtonsControls mouseTracking>
 
             </AliceCarousel>
-            <Colors/>
+            {/*Цвет: {currentColor}*/}
+            <Colors colors={colors} setCurrentColor={setCurrentColor}/>
 
             <h3 className={s.title}>{chair.title ?? '???'}</h3>
 
