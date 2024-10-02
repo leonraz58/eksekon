@@ -1,5 +1,6 @@
 import React from 'react';
 import s from "./filters.module.scss";
+import {Basket} from "../../../assets/icons/basket";
 
 export const Filters = () => {
 
@@ -8,11 +9,15 @@ export const Filters = () => {
 
     return (
         <div className={s.filtersWrapper}>
-            <div className={s.filters1}>
+            <div className={s.filters1plusbasket}>
+                <div className={s.filters1}>
                 {filterList1.map((item, index) => (
                     <div key={index} className={s.filter}>{item}</div>
                 ))}
+                </div>
+                <Basket/>
             </div>
+
             <div className={s.filters2}>
                 Модели:
                 {filterList2.map((item, index) => (

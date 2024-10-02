@@ -15,13 +15,14 @@ import s from "./colors.module.scss";
 
 type Props = {
     colors: Array<string>
+    currentColor: string
     setCurrentColor: (color: string) => void;
 }
 
-export const Colors = ({colors, setCurrentColor}:Props) => {
+export const Colors = ({colors, setCurrentColor, currentColor}:Props) => {
     return (
         <div className={s.colors}>
-            Цвет:
+            Цвет: {currentColor}
             {colors.map((item, index) => {
 
                 const onClickHandler = () => {

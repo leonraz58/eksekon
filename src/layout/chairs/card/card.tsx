@@ -33,7 +33,7 @@ export const Card = ({chair, images}: Props) => {
 
             </AliceCarousel>
             {/*Цвет: {currentColor}*/}
-            <Colors colors={colors} setCurrentColor={setCurrentColor}/>
+            <Colors colors={colors} setCurrentColor={setCurrentColor} currentColor={currentColor}/>
 
             <h3 className={s.title}>{chair.title ?? '???'}</h3>
 

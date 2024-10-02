@@ -63,7 +63,6 @@ const images: Images = {
 
 export const Chairs = () => {
 
-    console.log(images[chairs[0].id])
     return (
         <section className={s.section}>
             <PageContainer>
