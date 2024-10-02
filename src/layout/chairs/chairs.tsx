@@ -71,6 +71,12 @@ export const Chairs = () => {
                     {chairs.map(chair => {
                         return (<Card key={chair.id} chair={chair} images={images[chair.id]}/>)
                     })}
+                    {chairs.map(chair => {
+                        return (<Card key={chair.id} chair={chair} images={images[chair.id]}/>)
+                    })}
+                    {chairs.map(chair => {
+                        return (<Card key={chair.id} chair={chair} images={images[chair.id]}/>)
+                    })}
                 </div>
             </PageContainer>
         </section>

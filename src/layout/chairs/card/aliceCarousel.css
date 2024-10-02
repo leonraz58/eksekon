@@ -5,3 +5,33 @@
     /*list-style: none;*/
     /*text-align: center;*/
 }
+
+.alice-carousel__prev-btn, .alice-carousel__next-btn {
+    position: absolute;
+    top: 40%;
+    background-color: rgba(175, 175, 175, 0.68);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.alice-carousel__prev-btn-item:hover, .alice-carousel__next-btn-item:hover {
+    /*display: inline-block;*/
+    /*cursor: pointer;*/
+    /*padding: 5px;*/
+    /*margin: 0;*/
+    color: #556aba;
+}
+
+.alice-carousel__prev-btn {
+    margin-left: 5px;
+}
+
+.alice-carousel__next-btn {
+    right: 0;
+    margin-right: 5px;
+}

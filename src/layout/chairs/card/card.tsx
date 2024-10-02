@@ -29,7 +29,7 @@ export const Card = ({chair, images}: Props) => {
             {/*<div>*/}
             {/*    <img src={images['1']['yellow'][0] ?? image} alt="" className={s.cover}/>*/}
             {/*</div>*/}
-            <AliceCarousel items={items} disableButtonsControls mouseTracking>
+            <AliceCarousel items={items} mouseTracking disableDotsControls={false}>
 
             </AliceCarousel>
             {/*Цвет: {currentColor}*/}
