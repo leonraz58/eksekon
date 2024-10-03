@@ -12,3 +12,15 @@
     border: 1px solid var(--color-accent-300);
   }
 }
+
+.colorImg {
+  width: 50px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
+
+.colorActive {
+  border: 2px solid black;
+}
