@@ -20,11 +20,14 @@ export const Modal = ({ children, title, trigger, ...props }: ModalProps) => {
                 <DialogPrimitive.Overlay className={s.overlay} />
                 <DialogPrimitive.Content className={s.content}>
                     <div className={s.header}>
-                        <DialogPrimitive.Title asChild>
-                                <div>{title}</div>
-                        </DialogPrimitive.Title>
+                        {/*<DialogPrimitive.Title asChild>*/}
+                        {/*        <div>{title}</div>*/}
+                        {/*</DialogPrimitive.Title>*/}
                         <DialogPrimitive.Close className={s.closeButton}>
-                            x{/*x<Close height={24} width={24} />*/}
+                            <div>{" ← Назад"}</div>
+                        </DialogPrimitive.Close>
+                        <DialogPrimitive.Close className={s.closeButton}>
+                            X{/*x<Close height={24} width={24} />*/}
                         </DialogPrimitive.Close>
                     </div>
                     {children}

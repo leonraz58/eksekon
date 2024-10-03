@@ -18,6 +18,11 @@
         background-color: var(--color-accent-500);
       }
     }
+    //.cover {
+    //
+    //  transform: scale(1.5);
+    //  transition: all 5s
+    //}
   }
 
   @media screen and (max-width: 768px) {
@@ -34,6 +39,9 @@
   max-height: 300px;
   margin: 0 auto;
   object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+
 }
 
 
