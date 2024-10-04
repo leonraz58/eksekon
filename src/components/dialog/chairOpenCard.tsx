@@ -27,7 +27,7 @@ export const ChairOpenCard = ({images, ...modalProps}: DialogProps) => {
     ))
 
     return (
-        <Modal title={'Назад'} {...modalProps}>
+        <Modal {...modalProps}>
             <div className={s.wrapper}>
                 <div className={s.galleryWrapper}>
                     <AliceCarousel items={items} mouseTracking disableDotsControls={true} ref={carousel}/>
@@ -38,7 +38,7 @@ export const ChairOpenCard = ({images, ...modalProps}: DialogProps) => {
 
                 </div>
                 <div className={s.infoWrapper}>
-                    <h3>Дизайнерский стул The Molecula Oxygen</h3>
+                    <h3 className={s.title}>Дизайнерский стул The Molecula Oxygen</h3>
                     <div className={s.description}>Модель: Molecula</div>
                     <div className={s.description}>SKU: Molecula Oxygen 1 VERS 2</div>
                     <Colors colorsImages={colorsImages} colors={colors} setCurrentColor={setCurrentColor}
