@@ -30,8 +30,10 @@ export const ChairOpenCard = ({images, ...modalProps}: DialogProps) => {
         <Modal {...modalProps}>
             <div className={s.wrapper}>
                 <div className={s.galleryWrapper}>
-                    <AliceCarousel items={items} mouseTracking disableDotsControls={true} ref={carousel}/>
-
+                    <div style={{width: '100%'}}>
+                        {/*{items[0]}*/}
+                        <AliceCarousel items={items} mouseTracking disableDotsControls={true} ref={carousel}/>
+                    </div>
                     <div className={s.previewWrapper}>
                         {items2}
                     </div>

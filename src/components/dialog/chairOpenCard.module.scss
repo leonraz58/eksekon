@@ -22,8 +22,11 @@
 }
 
 .infoWrapper {
-  width: 100%;
+  width: 30%;
   align-self: flex-start;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .title {
@@ -34,10 +37,10 @@
 
 .cover {
   display: block;
-  width: 70%;
-  max-height: 600px;
+  //width: 70%;
+  height: 500px;
   margin: 0 auto;
-  object-fit: cover;
+  object-fit: contain;
   @media screen and (max-width: 768px) {
     max-height: 200px;
   }

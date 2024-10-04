@@ -5,7 +5,7 @@ import {Colors} from "./colors/colors";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import './aliceCarousel.css'
-import {useRef, useState} from "react";
+import {useState} from "react";
 import {ChairOpenCard} from "../../../components/dialog/chairOpenCard";
 
 type Props = {
@@ -24,7 +24,7 @@ export const Card = ({chair, images}: Props) => {
 
     const [currentColor, setCurrentColor] = useState<string>(colors[0])
     //const [currentIndex, setCurrentIndex] = useState<number>(3)
-
+    const [isSliderActive, setIsSliderActive] = useState<boolean>(false)
 
     const items = images[currentColor].map((item: string) => (
         <img src={item ?? image} alt="" className={s.cover}/>
@@ -32,12 +32,12 @@ export const Card = ({chair, images}: Props) => {
 
     return (
 
-        <div className={s.card}>
+        <div className={s.card} onMouseEnter={()=>setIsSliderActive(true)} onMouseLeave={()=>setIsSliderActive(false)}>
             <ChairOpenCard open={showCard} onOpenChange={setShowCard} images={images}/>
             {/*<div>*/}
             {/*    <img src={images['1']['yellow'][0] ?? image} alt="" className={s.cover}/>*/}
             {/*</div>*/}
-            <AliceCarousel items={items} mouseTracking disableDotsControls={true}/>
+            <AliceCarousel key={isSliderActive+''} items={items} mouseTracking disableDotsControls={true} autoPlay={isSliderActive}/>
             {/*<button onClick={()=>setCurrentIndex(1)}>g</button>*/}
 
             {/*<Colors colorsImages={colorsImages} colors={colors} setCurrentColor={setCurrentColor} currentColor={currentColor}/>*/}
