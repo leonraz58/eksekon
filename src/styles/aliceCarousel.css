@@ -10,14 +10,14 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(175, 175, 175, 0.68);
+    background-color: transparent;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 40px;
 
 }
 
@@ -26,7 +26,7 @@
     /*cursor: pointer;*/
     /*padding: 5px;*/
     /*margin: 0;*/
-    color: #556aba;
+    color: #ffffff;
 }
 
 .alice-carousel__prev-btn {
@@ -36,4 +36,9 @@
 .alice-carousel__next-btn {
     right: 0;
     margin-right: 5px;
+}
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+    color: #ffffff;
 }
