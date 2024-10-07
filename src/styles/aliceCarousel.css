@@ -8,7 +8,8 @@
 
 .alice-carousel__prev-btn, .alice-carousel__next-btn {
     position: absolute;
-    top: 40%;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: rgba(175, 175, 175, 0.68);
     border-radius: 50%;
     width: 30px;
@@ -17,6 +18,7 @@
     justify-content: center;
     align-items: center;
     font-size: 20px;
+
 }
 
 .alice-carousel__prev-btn-item:hover, .alice-carousel__next-btn-item:hover {
