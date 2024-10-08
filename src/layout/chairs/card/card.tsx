@@ -4,7 +4,7 @@ import {Button} from "../../../components/button/button";
 import {Colors} from "./colors/colors";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import '../../../styles/aliceCarousel.css'
+//import '../../../components/carousel/aliceCarousel.css'
 import {useState} from "react";
 import {ChairOpenCard} from "../../../components/dialog/chairOpenCard";
 

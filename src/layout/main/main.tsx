@@ -4,8 +4,10 @@ import image from './../../assets/images/main.jpeg'
 import imageSlider from './../../assets/images/mainSlider.jpeg'
 import imageSlider2 from './../../assets/images/mainSlider2.jpeg'
 import "react-alice-carousel/lib/alice-carousel.css";
-import './../../styles/aliceCarousel.css'
+//import './../../styles/aliceCarousel.css'
 import {PageContainer} from "../../components/pageContainer/pageContainer";
+import {Carousel} from "../../components/carousel/Carousel";
+
 
 export const Main = () => {
 
@@ -19,13 +21,14 @@ export const Main = () => {
         <div className={s.sectionMain}>
             <PageContainer>
                 {/*<div className={s.mainDiv}><img className={s.image} src={image} alt=""/></div>*/}
-                <div className={s.mainDiv}>
-                    <AliceCarousel animationType={'fadeout'}
-                                   disableDotsControls={true}
-                                   items={items}
-                        //renderPrevButton={() => (<div>{'<'}</div>)}
-                    />
-                </div>
+                {/*<div className={s.mainDiv}>*/}
+                {/*    <AliceCarousel animationType={'fadeout'}*/}
+                {/*                   disableDotsControls={true}*/}
+                {/*                   items={items}*/}
+                {/*        //renderPrevButton={() => (<div>{'<'}</div>)}*/}
+                {/*    />*/}
+                {/*</div>*/}
+                <Carousel/>
             </PageContainer>
         </div>
 
