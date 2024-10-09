@@ -8,7 +8,6 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import {PageContainer} from "../../components/pageContainer/pageContainer";
 import {Carousel} from "../../components/carousel/Carousel";
 
-
 export const Main = () => {
 
     const items = [
@@ -28,7 +27,7 @@ export const Main = () => {
                 {/*        //renderPrevButton={() => (<div>{'<'}</div>)}*/}
                 {/*    />*/}
                 {/*</div>*/}
-                <Carousel/>
+                <Carousel variant={'mainBigSlider'} images={[imageSlider, imageSlider2, image]} text={['slide1', 'slide2', 'slide3']} />
             </PageContainer>
         </div>
 
