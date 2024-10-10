@@ -1,42 +1,44 @@
-import React from 'react';
-import image1 from './../../assets/images/mainSlider.jpeg'
-import image2 from './../../assets/images/mainSlider2.jpeg'
+import React, {useRef, useState} from 'react';
 import s from "./carousel.module.scss";
-import AliceCarousel from "react-alice-carousel";
+import AliceCarousel, {AnimationType, AutoPlayStrategy} from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import './aliceCarousel.css'
-import image from './../../assets/images/main.jpeg'
 import clsx from "clsx";
 
-type animationType = 'slide' | 'fadeout'
+
+//type animationType = 'slide' | 'fadeout'
 
 type Props = {
-    variant?: 'mainBigSlider' | 'square'
+    variant?: 'mainBigSlider' | 'mainPageBlock'
     text?: string[]
     images?: string[]
-
+    //play: boolean
 }
 
 export const Carousel = (props: Props) => {
 
+    const carousel = useRef<AliceCarousel>(null);
+
     const {variant, images, text} = props
 
-    let disableDotsControls = true
-    let animationType: animationType = 'slide'
-    let imageVariantProps = ``
+    //const [isAutoPlayOn, setIsAutoPlayOn] = useState<boolean>(true)
+    //const [isDotsControlsOn, setIsDotsControlsOn] = useState<boolean>(false)
+
+    let animationType: AnimationType = variant === 'mainBigSlider' ? AnimationType.FADEOUT : AnimationType.SLIDE
     let autoHeight = false
-    let autoPlay = false
+    let isAutoPlayOn = variant === 'mainBigSlider'
+    let isButtonsControlsOn = variant === 'mainBigSlider'
+    let imageVariantProps = variant === 'mainBigSlider' ? s.imageBigSlider : ''
+    let isDotsControlsOn = variant === 'mainPageBlock'
+    let autoPlayStrategy = variant === 'mainBigSlider' ? AutoPlayStrategy.ALL : AutoPlayStrategy.NONE
+    let autoPlayInterval = variant === 'mainPageBlock' ? 100 : 3000
 
-    switch(variant) {
-        case 'mainBigSlider': {
-            animationType = 'fadeout'
-            imageVariantProps = s.imageBigSlider
-            autoPlay = true
-            break
-        }
-
+    const onMouseEnterHandler = () => {
+        carousel?.current?._handlePlayPauseToggle()
     }
-
+    const onMouseLeaveHandler = () => {
+        carousel?.current?._handlePlayPauseToggle()
+    }
     // const items = [
     //     <div className={s.imgWrapper}><img className={clsx(s.image, imageVariantProps)} src={image} alt=""></img><h2>slide1</h2></div>,
     //     <div className={s.imgWrapper}><img className={clsx(s.image, imageVariantProps)} alt=""></img><h2>slide2</h2></div>,
@@ -52,13 +54,21 @@ export const Carousel = (props: Props) => {
     })
 
     return (
-        <div className={s.wrapper}>
+        <div className={s.wrapper} onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler}>
             <AliceCarousel animationType={animationType}
-                           disableDotsControls={disableDotsControls}
-                           items={items} autoHeight={autoHeight} autoPlay={autoPlay}
+                           disableDotsControls={!isDotsControlsOn}
+                           disableButtonsControls={!isButtonsControlsOn}
+                           items={items}
+                           autoHeight={autoHeight}
+                           autoPlay={isAutoPlayOn}
+                           autoPlayInterval={autoPlayInterval}
+                           autoPlayStrategy={autoPlayStrategy}
+                           //renderKey={isAutoPlayOn ? 100 : 0}
+                           ref={carousel}
+                           infinite
                 //renderPrevButton={() => (<div>{'<'}</div>)}
             />
-            {/*<div className={s.imgWrapper}><img className={s.image} src={image} alt=""></img><h2>slide1</h2></div>,*/}
+            {/*<div className={s.imgWrapper}><img className={s.image} src={images[0]} alt=""></img></div>,*/}
         </div>
     );
 };

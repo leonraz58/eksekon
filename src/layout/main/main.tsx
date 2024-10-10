@@ -7,14 +7,18 @@ import "react-alice-carousel/lib/alice-carousel.css";
 //import './../../styles/aliceCarousel.css'
 import {PageContainer} from "../../components/pageContainer/pageContainer";
 import {Carousel} from "../../components/carousel/Carousel";
+import {useState} from "react";
 
 export const Main = () => {
 
-    const items = [
-        <div className={s.imgWrapper}><img className={s.image} src={imageSlider} alt=""></img><h2>slide1</h2></div>,
-        <div className={s.imgWrapper}><img className={s.image} src={imageSlider2} alt=""></img><h2>slide2</h2></div>,
-        <div className={s.imgWrapper}><img className={s.image} src={imageSlider} alt=""></img><h2>slide3</h2></div>,
-    ]
+    // const items = [
+    //     <div className={s.imgWrapper}><img className={s.image} src={imageSlider} alt=""></img></div>,
+    //     <div className={s.imgWrapper}><img className={s.image} src={imageSlider2} alt=""></img></div>,
+    //     <div className={s.imgWrapper}><img className={s.image} src={imageSlider} alt=""></img></div>,
+    // ]
+
+    // const [play, setPlay] = useState(false);
+    // console.log(play)
 
     return <section>
         <div className={s.sectionMain}>
@@ -27,7 +31,14 @@ export const Main = () => {
                 {/*        //renderPrevButton={() => (<div>{'<'}</div>)}*/}
                 {/*    />*/}
                 {/*</div>*/}
-                <Carousel variant={'mainBigSlider'} images={[imageSlider, imageSlider2, image]} text={['slide1', 'slide2', 'slide3']} />
+                <Carousel variant={'mainBigSlider'} images={[imageSlider, imageSlider2]}
+                         text={['slide1', 'slide2', 'slide3']}
+                />
+
+                <div style={{width: '500px', backgroundColor: 'red'}}>
+                    <Carousel variant={'mainPageBlock'} images={[imageSlider, imageSlider2]}/>
+
+                </div>
             </PageContainer>
         </div>
 

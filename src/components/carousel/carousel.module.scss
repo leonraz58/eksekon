@@ -6,6 +6,7 @@
     width: 100%;
     text-align: center;
     position: relative;
+    background-color: red;
 
 
     h2 {
@@ -26,17 +27,18 @@
   }
 
   .image {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    //aspect-ratio: 2 / 1;
-    &:hover {
-      transform: scale(1.2);
-      transition: 5s;
-    }
+    aspect-ratio: 2 / 1;
   }
 }
 
 .imageBigSlider {
   aspect-ratio: 2 / 1;
+  &:hover {
+    transform: scale(1.2);
+    transition: 5s;
+  }
 }
