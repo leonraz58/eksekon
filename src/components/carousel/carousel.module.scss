@@ -31,12 +31,13 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    aspect-ratio: 2 / 1;
+    //aspect-ratio: 2 / 1;
   }
 }
 
 .imageBigSlider {
   aspect-ratio: 2 / 1;
+  transition: 2s;
   &:hover {
     transform: scale(1.2);
     transition: 5s;

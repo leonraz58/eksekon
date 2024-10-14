@@ -4,10 +4,10 @@ import image from './../../assets/images/main.jpeg'
 import imageSlider from './../../assets/images/mainSlider.jpeg'
 import imageSlider2 from './../../assets/images/mainSlider2.jpeg'
 import "react-alice-carousel/lib/alice-carousel.css";
-//import './../../styles/aliceCarousel.css'
 import {PageContainer} from "../../components/pageContainer/pageContainer";
 import {Carousel} from "../../components/carousel/Carousel";
 import {useState} from "react";
+import {Carousel2} from "../../components/carousel2/Carousel2";
 
 export const Main = () => {
 
@@ -35,9 +35,15 @@ export const Main = () => {
                          text={['slide1', 'slide2', 'slide3']}
                 />
 
-                <div style={{width: '500px', backgroundColor: 'red'}}>
-                    <Carousel variant={'mainPageBlock'} images={[imageSlider, imageSlider2]}/>
-
+                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: '100%', }}>
+                    <div style={{marginTop: '10px', marginBottom: '10px', width: '50%', paddingRight: '5px'}}>
+                        <Carousel variant={'mainPageBlock'}
+                                  images={[imageSlider, imageSlider2, imageSlider, imageSlider2]}/>
+                    </div>
+                    <div style={{marginTop: '10px', marginBottom: '10px', width: '50%', paddingLeft: '5px'}}>
+                        <Carousel variant={'mainPageBlock'}
+                                  images={[imageSlider, imageSlider2, imageSlider, imageSlider2]}/>
+                    </div>
                 </div>
             </PageContainer>
         </div>
