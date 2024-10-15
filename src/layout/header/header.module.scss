@@ -4,12 +4,9 @@
   right: 0;
   left: 0;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
 
   width: 100%;
-  padding-right: 10px;
 
   //border: 1px solid red;
   z-index: 5;
@@ -17,6 +14,17 @@
   background: rgba(255, 255, 255, 0.9);
   height: 50px;
   box-shadow: 0 1px 2px 0 rgba(76, 76, 76, 0.2);
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
 }
 
 .logoWrapper {

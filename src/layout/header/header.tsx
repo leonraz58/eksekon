@@ -18,6 +18,7 @@ export const Header = () => {
     })
 
     return <header className={s.header}>
+        <div className={s.headerWrapper}>
         {isMobile && <MobileMenu/>}
         <div className={s.logoWrapper}>
             <img src={logo} alt="logo" className={s.logo}/>
@@ -25,5 +26,6 @@ export const Header = () => {
         {!isMobile && <DesktopMenu/>}
 
         <Contacts/>
+        </div>
     </header>
 }

@@ -25,10 +25,10 @@ export const Carousel = (props: Props) => {
     //const [isDotsControlsOn, setIsDotsControlsOn] = useState<boolean>(false)
 
     let animationType: AnimationType = variant === 'mainBigSlider' ? AnimationType.FADEOUT : AnimationType.SLIDE
-    let autoHeight = false
+    let autoHeight = variant !== 'mainBigSlider'
     let isAutoPlayOn = variant === 'mainBigSlider'
     let isButtonsControlsOn = variant === 'mainBigSlider'
-    let imageVariantProps = variant === 'mainBigSlider' ? s.imageBigSlider : ''
+    let imageVariantProps = variant === 'mainBigSlider' ? s.imageBigSlider : s.mainPageBlock
     let isDotsControlsOn = variant === 'mainPageBlock'
     let autoPlayStrategy = variant === 'mainBigSlider' ? AutoPlayStrategy.ALL : AutoPlayStrategy.NONE
     let autoPlayInterval = variant === 'mainPageBlock' ? 500 : 3000
