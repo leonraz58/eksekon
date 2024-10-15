@@ -31,7 +31,7 @@ export const Carousel = (props: Props) => {
     let imageVariantProps = variant === 'mainBigSlider' ? s.imageBigSlider : ''
     let isDotsControlsOn = variant === 'mainPageBlock'
     let autoPlayStrategy = variant === 'mainBigSlider' ? AutoPlayStrategy.ALL : AutoPlayStrategy.NONE
-    let autoPlayInterval = variant === 'mainPageBlock' ? 100 : 3000
+    let autoPlayInterval = variant === 'mainPageBlock' ? 500 : 3000
 
     const onMouseEnterHandler = () => {
         carousel?.current?._handlePlayPauseToggle()

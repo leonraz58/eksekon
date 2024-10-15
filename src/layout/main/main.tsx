@@ -32,17 +32,41 @@ export const Main = () => {
                 {/*    />*/}
                 {/*</div>*/}
                 <Carousel variant={'mainBigSlider'} images={[imageSlider, imageSlider2]}
-                         text={['slide1', 'slide2', 'slide3']}
+                          text={['slide1', 'slide2', 'slide3']}
                 />
 
-                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: '100%', }}>
-                    <div style={{marginTop: '10px', marginBottom: '10px', width: '50%', paddingRight: '5px'}}>
+                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: '100%',}}>
+                    <div style={{marginTop: '5px', marginBottom: '5px', width: '50%', paddingRight: '5px'}}>
                         <Carousel variant={'mainPageBlock'}
                                   images={[imageSlider, imageSlider2, imageSlider, imageSlider2]}/>
                     </div>
-                    <div style={{marginTop: '10px', marginBottom: '10px', width: '50%', paddingLeft: '5px'}}>
+                    <div style={{marginTop: '5px', marginBottom: '5px', width: '50%', paddingLeft: '5px'}}>
                         <Carousel variant={'mainPageBlock'}
                                   images={[imageSlider, imageSlider2, imageSlider, imageSlider2]}/>
+                    </div>
+                </div>
+                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: '100%', gap: '10px'}}>
+                    <div style={{
+                        marginTop: '5px',
+                        marginBottom: '5px',
+                        width: '50%',
+                        //paddingRight: '5px',
+                        overflow: 'hidden',
+                        position: 'relative'
+                    }} className={s.hoveredDiv}>
+                        <img src={imageSlider} alt="" className={s.hoveredImage}/>
+                        <h2 className={s.hoveredText}>Text Text Text</h2>
+                    </div>
+                    <div style={{
+                        marginTop: '5px',
+                        marginBottom: '5px',
+                        width: '50%',
+                        //paddingLeft: '5px',
+                        overflow: 'hidden',
+                        position: 'relative'
+                    }} className={s.hoveredDiv}>
+                        <img src={imageSlider} alt="" className={s.hoveredImage}/>
+                        <h2 className={s.hoveredText}>Text Text Text</h2>
                     </div>
                 </div>
             </PageContainer>
