@@ -3,6 +3,7 @@ import {Layout} from "../layout/layout";
 import {Chairs} from "../layout/chairs/chairs";
 import {Main} from "../layout/main/main";
 import {Tests} from "../layout/tests/tests";
+import {ChairPage} from "../layout/chairs/chairPage/chairPage";
 
 const publicRoutes: RouteObject[] = [
     {
@@ -16,6 +17,10 @@ const publicRoutes: RouteObject[] = [
     {
         element: <Tests/>,
         path: '/tests',
+    },
+    {
+        element: <ChairPage/>,
+        path: '/chairs/:chairId',
     }
 ]
 

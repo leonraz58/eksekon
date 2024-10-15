@@ -5,6 +5,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import {useState} from "react";
 import {ChairOpenCard} from "../../../components/dialog/chairOpenCard";
+import {Link} from "react-router-dom";
 
 type Props = {
     chair?: any
@@ -49,7 +50,7 @@ export const Card = ({chair, images}: Props) => {
                 <span className={s.price2}>26 000 р.</span>
             </div>
             <div className={s.buttonsWrapper}>
-                <Button variant={'primary'} onClick={()=>setShowCard(true)}>Подробнее</Button>
+                <Button to={`/chairs/${chair.id}`} as={Link} variant={'primary'} onClick={()=>setShowCard(true)}>Подробнее</Button>
                 <Button variant={'secondary'}>Купить</Button>
             </div>
         </div>
