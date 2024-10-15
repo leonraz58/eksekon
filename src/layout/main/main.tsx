@@ -1,13 +1,10 @@
 import s from './main.module.scss'
-import AliceCarousel from "react-alice-carousel";
 import image from './../../assets/images/main.jpeg'
 import imageSlider from './../../assets/images/mainSlider.jpeg'
 import imageSlider2 from './../../assets/images/mainSlider2.jpeg'
 import "react-alice-carousel/lib/alice-carousel.css";
 import {PageContainer} from "../../components/pageContainer/pageContainer";
 import {Carousel} from "../../components/carousel/Carousel";
-import {useState} from "react";
-import {Carousel2} from "../../components/carousel2/Carousel2";
 
 export const Main = () => {
 

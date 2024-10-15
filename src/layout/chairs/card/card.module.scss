@@ -1,8 +1,11 @@
-.card {
-  //max-width: 500px;
-  //flex-grow: 1;
-  width: 400px;
+.wrapper {
+  width: 33.333333333%;
+  padding: 5px;
+}
 
+.card {
+
+  width: 100%;
   //border: 1px solid rgb(236, 236, 236);
   //margin-right: -1px;
   padding: 20px;
@@ -18,11 +21,6 @@
         background-color: var(--color-accent-500);
       }
     }
-    //.cover {
-    //
-    //  transform: scale(1.5);
-    //  transition: all 5s
-    //}
   }
 
   @media screen and (max-width: 768px) {
@@ -36,12 +34,12 @@
 
 .cover {
   width: 100%;
-  max-height: 300px;
+  //max-height: 300px;
   margin: 0 auto;
   object-fit: cover;
   user-select: none;
   pointer-events: none;
-
+  aspect-ratio: 1 / 1;
 }
 
 

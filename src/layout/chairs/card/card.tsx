@@ -1,10 +1,8 @@
 import s from './card.module.scss'
 import image from './../../../assets/images/main.jpeg'
 import {Button} from "../../../components/button/button";
-import {Colors} from "./colors/colors";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-//import '../../../components/carousel/aliceCarousel.css'
 import {useState} from "react";
 import {ChairOpenCard} from "../../../components/dialog/chairOpenCard";
 
@@ -31,7 +29,7 @@ export const Card = ({chair, images}: Props) => {
     ))
 
     return (
-
+<div className={s.wrapper}>
         <div className={s.card} onMouseEnter={()=>setIsSliderActive(true)} onMouseLeave={()=>setIsSliderActive(false)}>
             <ChairOpenCard open={showCard} onOpenChange={setShowCard} images={images}/>
             {/*<div>*/}
@@ -40,13 +38,12 @@ export const Card = ({chair, images}: Props) => {
             <AliceCarousel key={isSliderActive+''} items={items} mouseTracking disableDotsControls={true} autoPlay={isSliderActive}/>
             {/*<button onClick={()=>setCurrentIndex(1)}>g</button>*/}
 
-            {/*<Colors colorsImages={colorsImages} colors={colors} setCurrentColor={setCurrentColor} currentColor={currentColor}/>*/}
 
             <h3 className={s.title}>{chair.title ?? '???'}</h3>
 
-            {/*<p className={s.description}>Цвет стула может быть выбран из нашего каталога тканей, в наличии более 15*/}
-            {/*    оттенков. Для уточнения*/}
-            {/*    информации, свяжитесь с нами удобным для Вас способом.</p>*/}
+            <p className={s.description}>Цвет стула может быть выбран из нашего каталога тканей, в наличии более 15
+                оттенков. Для уточнения
+                информации, свяжитесь с нами удобным для Вас способом.</p>
             <div className={s.priceWrapper}>
                 <span className={s.price1}>15 000 р. </span>
                 <span className={s.price2}>26 000 р.</span>
@@ -56,6 +53,6 @@ export const Card = ({chair, images}: Props) => {
                 <Button variant={'secondary'}>Купить</Button>
             </div>
         </div>
-
+</div>
     )
 }
