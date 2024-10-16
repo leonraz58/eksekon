@@ -12,53 +12,46 @@ import green2 from './images/green/82777417.jpg'
 import green3 from './images/green/71886955.jpg'
 import green4 from './images/green/93328930.jpg'
 
-type Chair = {
+export type Chair = {
     id: string
     title: string
     description: string
     colors: string[]
+    images: string[]
 }
 
-const chairs: Chair[] = [
+export const chairs: Chair[] = [
     {
         id: '1',
         title: 'Дизайнерский стул The Molecula Oxygen',
         description: 'Цвет стула может быть выбран из нашего каталога тканей, в наличии более 15 оттенков. Для уточнения информации, свяжитесь с нами удобным для Вас способом.',
-        colors: ['yellow']
+        colors: ['yellow'],
+        images: [image1, image2, image3]
     },
     {
         id: '2',
         title: 'Дизайнерский стул The Molecula Oxygen',
         description: 'Цвет стула может быть выбран из нашего каталога тканей, в наличии более 15 оттенков. Для уточнения информации, свяжитесь с нами удобным для Вас способом.',
-        colors: ['yellow']
+        colors: ['yellow'],
+        images: [green4, green3, green2, green1]
     },
     {
         id: '3',
         title: 'Дизайнерский стул The Molecula Oxygen',
         description: 'Цвет стула может быть выбран из нашего каталога тканей, в наличии более 15 оттенков. Для уточнения информации, свяжитесь с нами удобным для Вас способом.',
-        colors: ['yellow']
+        colors: ['yellow'],
+        images: [image1, image2, image3]
     },
 ]
 
 type Images = {
-    [id: string] : {
-        [color: string] : string[]
-    }
+    [id: string] : string[]
 }
 
-const images: Images = {
-    '1': {
-        'yellow': [image1, image2, image3],
-         'green': [green4, green3, green2, green1]
-    },
-    '2': {
-        'yellow': [image1, image2, image3],
-        'green': [green4, green3, green2, green1]
-    },
-    '3': {
-        'yellow': [image1, image2, image3],
-        'green': [green4, green3, green2, green1]
-    }
+export const images: Images = {
+    '1': [image1, image2, image3],
+    '2': [green4, green3, green2, green1],
+    '3': [green4, green3, green2, green1]
 }
 
 export const Chairs = () => {
@@ -69,13 +62,7 @@ export const Chairs = () => {
                 <Filters/>
                 <div className={s.cardWrapper}>
                     {chairs.map(chair => {
-                        return (<Card key={chair.id} chair={chair} images={images[chair.id]}/>)
-                    })}
-                    {chairs.map(chair => {
-                        return (<Card key={chair.id} chair={chair} images={images[chair.id]}/>)
-                    })}
-                    {chairs.map(chair => {
-                        return (<Card key={chair.id} chair={chair} images={images[chair.id]}/>)
+                        return (<Card key={chair.id} chair={chair}/>)
                     })}
                 </div>
             </PageContainer>
