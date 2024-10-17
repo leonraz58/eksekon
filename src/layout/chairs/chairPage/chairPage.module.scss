@@ -28,8 +28,11 @@
 .carouselWrapper {
   width: 100%;
   border-radius: 20px;
+//  opacity: 0;
+//  background: linear-gradient(to right, #c5c5c5, #fff 10%, #fff 90%, #c5c5c5);
   &:hover {
     background: linear-gradient(to right, #c5c5c5, #fff 10%, #fff 90%, #c5c5c5);
+    transition: 2s;
   }
 
 }

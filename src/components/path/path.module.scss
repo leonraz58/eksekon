@@ -1,0 +1,16 @@
+.wrapper {
+  margin: 10px 5px 5px;
+  font-size: 14px;
+}
+
+.link {
+  transition: 0.2s;
+  &:hover {
+    color: #676767;
+    transition: 0.2s;
+  }
+}
+
+.text {
+  color: #808080;
+}

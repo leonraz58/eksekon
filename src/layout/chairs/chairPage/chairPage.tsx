@@ -7,6 +7,7 @@ import {chairs} from "../chairs";
 import {useParams} from "react-router-dom";
 import {Block} from "../../../components/block/block";
 import logo from '../../../assets/images/logo.png'
+import {Path} from "../../../components/path/path";
 
 
 export const ChairPage = () => {
@@ -30,10 +31,12 @@ export const ChairPage = () => {
         ))
     }
 
+    let chairTitle = chair?.title ?? 'error'
 
     return (
         <section>
             <PageContainer>
+                <Path pathItems={[{text: 'Стулья', href: '/chairs'}, {text: chairTitle}]} />
                 <Block>
                     <div className={s.wrapper}>
                         <div className={s.galleryWrapper}>
