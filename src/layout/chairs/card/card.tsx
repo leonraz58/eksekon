@@ -6,12 +6,36 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import {Chair} from "../chairs";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../../../utils/store";
+import {basketActions, BasketItem} from "../../../utils/basketReducer";
 
 type Props = {
     chair: Chair
 }
 
 export const Card = ({chair}: Props) => {
+
+    const dispatch = useDispatch()
+    const basket = useSelector<AppRootStateType, BasketItem[]>(state => state.basket);
+
+    let InBasketInit = basket.find(elem => elem.id === chair.id)
+
+    const [inBasket, setInBasket] = useState<boolean>(!!InBasketInit)
+
+    const onAddItemToBasket = () => {
+        if (chair.id) {
+            dispatch(basketActions.addItemToBasket({id: chair.id, value: 1}));
+            setInBasket(true)
+        }
+    }
+
+    const onRemoveItemFromBasket = () => {
+        if (chair.id) {
+            dispatch(basketActions.removeItemFromBasket(chair.id));
+            setInBasket(false)
+        }
+    }
 
     const [isSliderActive, setIsSliderActive] = useState<boolean>(false)
 
@@ -26,7 +50,7 @@ export const Card = ({chair}: Props) => {
                 {/*<div>*/}
                 {/*    <img src={images['1']['yellow'][0] ?? image} alt="" className={s.cover}/>*/}
                 {/*</div>*/}
-                <AliceCarousel key={isSliderActive + ''} items={items} mouseTracking disableDotsControls={true}
+                <AliceCarousel items={items} mouseTracking disableDotsControls={true}
                                autoPlay={isSliderActive}/>
                 {/*<button onClick={()=>setCurrentIndex(1)}>g</button>*/}
 
@@ -42,7 +66,8 @@ export const Card = ({chair}: Props) => {
                 </div>
                 <div className={s.buttonsWrapper}>
                     <Button to={`/chairs/${chair.id}`} as={Link} variant={'primary'}>Подробнее</Button>
-                    <Button variant={'secondary'}>Купить</Button>
+                    {!inBasket && <Button variant={'secondary'} onClick={onAddItemToBasket}>Купить</Button>}
+                    {inBasket && <Button variant={'secondary'} onClick={onRemoveItemFromBasket}>Удалить из корзины</Button>}
                 </div>
             </div>
         </div>
