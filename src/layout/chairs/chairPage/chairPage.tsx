@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {PageContainer} from "../../../components/pageContainer/pageContainer";
 import s from './chairPage.module.scss'
 import AliceCarousel from "react-alice-carousel";
@@ -8,35 +8,68 @@ import {useParams} from "react-router-dom";
 import {Block} from "../../../components/block/block";
 import logo from '../../../assets/images/logo.png'
 import {Path} from "../../../components/path/path";
+import {basketActions, BasketItem} from "../../../utils/basketReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../../../utils/store";
 
 
 export const ChairPage = () => {
 
+    const dispatch = useDispatch()
+    const basket = useSelector<AppRootStateType, BasketItem[]>(state => state.basket);
+
     const {chairId} = useParams()
 
+    let isInBasket = basket.find(elem => elem.id === chairId)
+
     const chair = chairs.find(chair => chair.id === chairId);
+
+    // let initInBasket = false
+    // if (chair?.id) {
+    //     let localStorageData = localStorage.getItem('id')
+    //     if (localStorageData) {
+    //         let ids = JSON.parse(localStorageData)
+    //         initInBasket = !!ids.includes(chair.id)
+    //     }
+    // }
+
+    const [inBasket, setInBasket] = useState<boolean>(!!isInBasket)
 
     const carousel = useRef<AliceCarousel>(null);
 
     let items
     let items2
     if (chair) {
-        items = chair.images.map((item: string) => (
-            <img src={item} alt="" className={s.cover}/>
+        items = chair.images.map((item: string, i: number) => (
+            <img key={i} src={item} alt="" className={s.cover}/>
         ))
 
         items2 = chair.images.map((item: string, i: number) => (
-            <div><img key={i} onClick={() => carousel?.current?.slideTo(i)} src={item} alt="" className={s.cover2}/>
+            <div key={i}><img onClick={() => carousel?.current?.slideTo(i)} src={item} alt="" className={s.cover2}/>
             </div>
         ))
     }
 
     let chairTitle = chair?.title ?? 'error'
 
+    const onAddItemToBasket = () => {
+        if (chairId) {
+            dispatch(basketActions.addItemToBasket({id: chairId, value: 1}));
+            setInBasket(true)
+        }
+    }
+
+    const onRemoveItemFromBasket = () => {
+        if (chairId) {
+            dispatch(basketActions.removeItemFromBasket(chairId));
+            setInBasket(false)
+        }
+    }
+
     return (
         <section>
             <PageContainer>
-                <Path pathItems={[{text: 'Стулья', href: '/chairs'}, {text: chairTitle}]} />
+                <Path pathItems={[{text: 'Стулья', href: '/chairs'}, {text: chairTitle}]}/>
                 <Block>
                     <div className={s.wrapper}>
                         <div className={s.galleryWrapper}>
@@ -65,7 +98,9 @@ export const ChairPage = () => {
                                     <span className={s.price1}>15 000 р. </span>
                                     <span className={s.price2}>26 000 р.</span>
                                 </div>
-                                <Button variant={"secondary"}>Добавить в корзину</Button>
+                                {!inBasket && <Button variant={"secondary"} fullWidth onClick={onAddItemToBasket}>Добавить в корзину</Button>}
+                                {inBasket && <Button variant={"secondary"} fullWidth onClick={onRemoveItemFromBasket}>Удалить из
+                                    корзины</Button>}
                             </div>
 
                         </div>
