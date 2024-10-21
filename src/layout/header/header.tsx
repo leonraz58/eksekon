@@ -4,14 +4,22 @@ import {Contacts} from "./contacts/contacts";
 import {DesktopMenu} from "./headerMenu/menu/desktopMenu/desktopMenu";
 import {MobileMenu} from "./headerMenu/menu/mobileMenu/mobileMenu";
 import {useEffect, useState} from "react";
+import {Basket} from "../../assets/icons/basket";
+import {Badge} from "../../components/badge/badge";
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "../../utils/store";
+import {BasketItem} from "../../utils/basketReducer";
 
 export const Header = () => {
+
+    const basket = useSelector<AppRootStateType, BasketItem[]>(state => state.basket)
+    const basketNumber = basket.length
 
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 768
     let isMobile = width < breakpoint
 
-    useEffect(()=>{
+    useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth);
         window.addEventListener('resize', handleWindowResize);
         return () => window.removeEventListener('resize', handleWindowResize);
@@ -19,13 +27,15 @@ export const Header = () => {
 
     return <header className={s.header}>
         <div className={s.headerWrapper}>
-        {isMobile && <MobileMenu/>}
-        <div className={s.logoWrapper}>
-            <img src={logo} alt="logo" className={s.logo}/>
-        </div>
-        {!isMobile && <DesktopMenu/>}
-
-        <Contacts/>
+            {isMobile && <MobileMenu/>}
+            <div className={s.logoWrapper}>
+                <img src={logo} alt="logo" className={s.logo}/>
+            </div>
+            {!isMobile && <DesktopMenu/>}
+            <div className={s.rightBlock}>
+                <Badge badgeContent={basketNumber}><Basket/></Badge>
+                <Contacts/>
+            </div>
         </div>
     </header>
 }

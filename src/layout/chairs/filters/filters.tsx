@@ -1,6 +1,5 @@
 import React from 'react';
 import s from "./filters.module.scss";
-import {Basket} from "../../../assets/icons/basket";
 
 export const Filters = () => {
 
@@ -15,7 +14,6 @@ export const Filters = () => {
                     <div key={index} className={s.filter}>{item}</div>
                 ))}
                 </div>
-                <Basket/>
             </div>
 
             <div className={s.filters2}>
