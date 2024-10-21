@@ -66,10 +66,10 @@ export const Card = ({chair}: Props) => {
                     <span className={s.price2}>26 000 р.</span>
                 </div>
                 <div className={s.buttonsWrapper}>
-                    <Button to={`/chairs/${chair.id}`} as={Link} variant={'primary'}>Подробнее</Button>
-                    {!inBasket && <Button variant={'secondary'} onClick={onAddItemToBasket}>Купить</Button>}
+                    <Button to={`/chairs/${chair.id}`} as={Link} variant={'secondary'}>Подробнее</Button>
+                    {!inBasket && <Button variant={'primary'} onClick={onAddItemToBasket}>Купить</Button>}
                     {inBasket &&
-                        <Button variant={'secondary'} onClick={onRemoveItemFromBasket}>Удалить из корзины</Button>}
+                        <Button variant={'secondary'} onClick={onRemoveItemFromBasket}>В корзине</Button>}
                 </div>
             </div>
         </div>

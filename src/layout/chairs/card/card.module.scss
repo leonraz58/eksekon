@@ -15,12 +15,12 @@
 
   &:hover {
     //box-shadow: rgb(236, 236, 236) 0 0 30px 10px;
-    button:last-child {
-      background-color: var(--color-accent-300);
-      &:hover {
-        background-color: var(--color-accent-500);
-      }
-    }
+    //button:last-child {
+    //  background-color: var(--color-accent-300);
+    //  &:hover {
+    //    background-color: var(--color-accent-500);
+    //  }
+    //}
   }
 
   @media screen and (max-width: 768px) {

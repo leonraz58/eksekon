@@ -99,9 +99,8 @@ export const ChairPage = () => {
                                     <span className={s.price1}>15 000 р. </span>
                                     <span className={s.price2}>26 000 р.</span>
                                 </div>
-                                {!inBasket && <Button variant={"secondary"} fullWidth onClick={onAddItemToBasket}>Добавить в корзину</Button>}
-                                {inBasket && <Button variant={"secondary"} fullWidth onClick={onRemoveItemFromBasket}>Удалить из
-                                    корзины</Button>}
+                                {!inBasket && <Button variant={"primary"} fullWidth onClick={onAddItemToBasket}>Добавить в корзину</Button>}
+                                {inBasket && <Button variant={"secondary"} fullWidth onClick={onRemoveItemFromBasket}>В корзине</Button>}
                             </div>
 
                         </div>
