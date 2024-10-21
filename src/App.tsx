@@ -17,7 +17,7 @@ function App() {
 
     useEffect(() => {
 
-        let basketLS = localStorage.getItem('ids')
+        let basketLS = localStorage.getItem('basket')
         if (basketLS) {
             let basket = JSON.parse(basketLS);
             dispatch(basketActions.setBasketItems(basket));
