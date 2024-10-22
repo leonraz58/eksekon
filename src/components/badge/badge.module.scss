@@ -1,6 +1,7 @@
 .boxWrap {
   position: relative;
   line-height: 1;
+
 }
 
 .icon {
@@ -8,6 +9,8 @@
   margin: 0;
   height: 35px;
   width: 35px;
+  border-radius: 7px;
+  padding: 2px;
 }
 
 .indicator {
@@ -15,15 +18,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
-  height: 20px;
-  min-width: 20px;
+  background-color: #ff0000;
+  height: 16px;
+  min-width: 16px;
   width: fit-content;
   z-index: 0;
   border-radius: 999px;
-  padding: 5px;
-  font-size: 16px;
-  line-height: 20px;
+  padding: 3px;
+  font-size: 12px;
+  line-height: 16px;
   bottom: 20px;
   left: 20px
 }

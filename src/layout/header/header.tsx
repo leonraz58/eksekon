@@ -9,6 +9,7 @@ import {Badge} from "../../components/badge/badge";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../utils/store";
 import {BasketItem} from "../../utils/basketReducer";
+import {Link} from "react-router-dom";
 
 export const Header = () => {
 
@@ -33,7 +34,9 @@ export const Header = () => {
             </div>
             {!isMobile && <DesktopMenu/>}
             <div className={s.rightBlock}>
-                <Badge badgeContent={basketNumber}><Basket/></Badge>
+                <Link to={'/cart'}>
+                    <Badge badgeContent={basketNumber}><Basket className={s.basket}/></Badge>
+                </Link>
                 <Contacts/>
             </div>
         </div>

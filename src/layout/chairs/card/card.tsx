@@ -32,12 +32,12 @@ export const Card = ({chair}: Props) => {
         }
     }
 
-    const onRemoveItemFromBasket = () => {
-        if (chair.id) {
-            dispatch(basketActions.removeItemFromBasket(chair.id));
-            setInBasket(false)
-        }
-    }
+    // const onRemoveItemFromBasket = () => {
+    //     if (chair.id) {
+    //         dispatch(basketActions.removeItemFromBasket(chair.id));
+    //         setInBasket(false)
+    //     }
+    // }
 
     const items = chair.images.map((item: string) => (
         <div onMouseEnter={() => carousel?.current?._handlePlayPauseToggle()}
@@ -69,7 +69,7 @@ export const Card = ({chair}: Props) => {
                     <Button to={`/chairs/${chair.id}`} as={Link} variant={'secondary'}>Подробнее</Button>
                     {!inBasket && <Button variant={'primary'} onClick={onAddItemToBasket}>Купить</Button>}
                     {inBasket &&
-                        <Button variant={'secondary'} onClick={onRemoveItemFromBasket}>В корзине</Button>}
+                        <Button as={Link} to={'/cart'} variant={'secondary'}>В корзине</Button>}
                 </div>
             </div>
         </div>

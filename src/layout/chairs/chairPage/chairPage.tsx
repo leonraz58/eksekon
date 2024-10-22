@@ -4,7 +4,7 @@ import s from './chairPage.module.scss'
 import AliceCarousel from "react-alice-carousel";
 import {Button} from "../../../components/button/button";
 import {chairs} from "../chairs";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {Block} from "../../../components/block/block";
 import logo from '../../../assets/images/logo.png'
 import {Path} from "../../../components/path/path";
@@ -60,13 +60,6 @@ export const ChairPage = () => {
         }
     }
 
-    const onRemoveItemFromBasket = () => {
-        if (chairId) {
-            dispatch(basketActions.removeItemFromBasket(chairId));
-            setInBasket(false)
-        }
-    }
-
     return (
         <section>
             <PageContainer>
@@ -100,7 +93,7 @@ export const ChairPage = () => {
                                     <span className={s.price2}>26 000 р.</span>
                                 </div>
                                 {!inBasket && <Button variant={"primary"} fullWidth onClick={onAddItemToBasket}>Добавить в корзину</Button>}
-                                {inBasket && <Button variant={"secondary"} fullWidth onClick={onRemoveItemFromBasket}>В корзине</Button>}
+                                {inBasket && <Button to={'/cart'} as={Link} variant={"secondary"} fullWidth>В корзине</Button>}
                             </div>
 
                         </div>
