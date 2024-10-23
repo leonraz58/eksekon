@@ -6,6 +6,7 @@ import {Counter} from "../counter/counter";
 import {Delete} from "../../../assets/icons/delete";
 import {Button} from "../../../components/button/button";
 import {useDispatch} from "react-redux";
+import {Block} from "../../../components/block/block";
 
 type Props = {
     item: BasketItem
@@ -17,22 +18,27 @@ export const CartItem = ({item}: Props) => {
     const dispatch = useDispatch()
 
     return (
-        <div className={s.wrapper}>
-            <div>
-                <img src={chair?.images[0]} alt="" className={s.cover}/>
-            </div>
+        <Block>
+            <div className={s.wrapper}>
+                <div className={s.infoWithImage}>
+                    <div>
+                        <img src={chair?.images[0]} alt="" className={s.cover}/>
+                    </div>
 
-            <div className={s.info}>
-                <span>{chair?.title}</span>
-                <span>id - {chair?.id}</span>
-                <span>Value - {item.value}</span>
+                    <div className={s.info}>
+                        <span>{chair?.title}</span>
+                        <span>id: {chair?.id}</span>
+                        <Counter item={item}/>
+                    </div>
+                </div>
+                <div style={{alignSelf: 'center'}}>
+
+                </div>
+                <div>
+                    <Button className={s.iconButton}
+                            onClick={() => dispatch(basketActions.removeItemFromBasket(item.id))}><Delete/></Button>
+                </div>
             </div>
-            <div>
-                <Counter item={item}/>
-            </div>
-            <div>
-                <Button className={s.iconButton} onClick={()=>dispatch(basketActions.removeItemFromBasket(item.id))}><Delete/></Button>
-            </div>
-        </div>
+        </Block>
     );
 };

@@ -1,5 +1,12 @@
 .wrapper {
   display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px;
+}
+
+.infoWithImage {
+  display: flex;
   gap: 10px;
 }
 

@@ -31,27 +31,33 @@ export const Cart = () => {
         <section>
             <PageContainer>
                 <h2 className={s.pageTitle}>Корзина</h2>
-                <Block>
-                    <div className={s.wrapper}>
 
-                        <div className={s.basket}>
-                            {basket.map((item, index) => (<div>
-                                <CartItem key={index} item={item}/>
-                            </div>))}
-                        </div>
-                        <form onSubmit={handleSubmit} className={s.form}>
-                            <div style={{display: 'flex',flexDirection: 'column'}}>
-                                <label htmlFor="name">Введите имя</label>
-                                <input type="text" name="name" id={"name"} ref={nameRef}/>
-                            </div>
-                            <div style={{display: 'flex', flexDirection: 'column'}}>
-                                <label htmlFor="email">Введите email</label>
-                                <input type="text" name="email" id={"email"} ref={emailRef}/>
-                            </div>
-                            <Button variant={'primary'} fullWidth>Submit</Button>
-                        </form>
+                <div className={s.wrapper}>
+
+                    <div className={s.basket}>
+                        {basket.map((item, index) => (
+                            <CartItem key={index} item={item}/>
+                        ))}
                     </div>
-                </Block>
+
+                    <form onSubmit={handleSubmit} className={s.form}>
+                        <Block>
+                            <div className={s.formWrapper}>
+                                <div style={{display: 'flex', flexDirection: 'column'}}>
+                                    <label htmlFor="name">Введите имя</label>
+                                    <input type="text" name="name" id={"name"} ref={nameRef}/>
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'column'}}>
+                                    <label htmlFor="email">Введите email</label>
+                                    <input type="text" name="email" id={"email"} ref={emailRef}/>
+                                </div>
+                                <Button variant={'primary'} fullWidth>Оформить заказ</Button>
+                            </div>
+                        </Block>
+                    </form>
+
+                </div>
+
             </PageContainer>
         </section>
     );
