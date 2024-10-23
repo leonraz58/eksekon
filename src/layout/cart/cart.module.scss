@@ -1,0 +1,22 @@
+.pageTitle {
+  margin: 10px 5px 5px;
+}
+
+.wrapper {
+  padding: 20px;
+  display: flex;
+}
+
+.basket {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
