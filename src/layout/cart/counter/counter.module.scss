@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-accent-500);
+  border-radius: 5px;
+}
+
+.counterButton {
+  padding: 8px 12px;
+  color: var(--color-accent-500);
+  font-size: 20px;
+  border: none;
+}
+
+.input {
+  width: 31px;
+  text-align: center;
+  border: none;
+}

@@ -17,10 +17,17 @@ const slice = createSlice({
         },
         addItemToBasket(state, action: PayloadAction<BasketItem>) {
             let isInBasket = state.find((elem) => elem.id === action.payload.id);
-            if (!isInBasket) {
+            if (isInBasket) {
+                let item = state.find((elem) => elem.id === action.payload.id);
+                if (item) {
+                    item.value = action.payload.value;
+                }
+            } else {
                 localStorage.setItem('basket', JSON.stringify([...state, action.payload]));
                 return ([...state, action.payload])
             }
+
+            localStorage.setItem('basket', JSON.stringify(state));
         },
         removeItemFromBasket(state, action: PayloadAction<string>) {
             let finalState = state.filter((item) => item.id !== action.payload)

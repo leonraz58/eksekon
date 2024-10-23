@@ -2,6 +2,7 @@ import React from 'react';
 import {BasketItem} from "../../../utils/basketReducer";
 import {chairs} from "../../chairs/chairs";
 import s from './cart-item.module.scss'
+import {Counter} from "../counter/counter";
 
 type Props = {
     item: BasketItem
@@ -23,7 +24,7 @@ export const CartItem = ({item}: Props) => {
                 <span>Value - {item.value}</span>
             </div>
             <div>
-                +
+                <Counter item={item}/>
             </div>
         </div>
     );
