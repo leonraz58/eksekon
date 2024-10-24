@@ -8,6 +8,7 @@ import {CartItem} from "./cartItem/cart-item";
 import s from './cart.module.scss'
 import emailjs from '@emailjs/browser';
 import {Button} from "../../components/button/button";
+import {motion} from "framer-motion"
 
 export const Cart = () => {
 
@@ -36,8 +37,14 @@ export const Cart = () => {
 
                     <div className={s.basket}>
                         {basket.map((item, index) => (
-                            <CartItem key={index} item={item}/>
-                        ))}
+                            <motion.div initial={{opacity: 0}}
+                                        animate={{opacity: 1}}
+                                        exit={{opacity: 0}} layout
+                                        key={item.id}
+                            >
+                                <CartItem key={item.id} item={item}/>
+
+                            </motion.div>))}
                     </div>
 
                     <form onSubmit={handleSubmit} className={s.form}>
