@@ -1,0 +1,22 @@
+.emptyBasket {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px
+}
+
+.image {
+  width: 200px;
+  object-fit: cover;
+}
+
+.text1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.text2 {
+  font-size: 16px;
+}
