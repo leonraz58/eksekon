@@ -9,6 +9,7 @@ import s from './cart.module.scss'
 import emailjs from '@emailjs/browser';
 import {Button} from "../../components/button/button";
 import {motion} from "framer-motion"
+import EmptyBasket from "./empty-basket/empty-basket";
 
 export const Cart = () => {
 
@@ -18,22 +19,31 @@ export const Cart = () => {
 
     const emailRef = useRef<HTMLInputElement>(null);
     const nameRef = useRef<HTMLInputElement>(null);
+    const phoneRef = useRef<HTMLInputElement>(null);
+    const townRef = useRef<HTMLInputElement>(null);
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
         emailjs.send("service_di6o1q2", "template_1en6x2g", {
             name: nameRef?.current?.value,
             email: emailRef?.current?.value,
+            phone: phoneRef?.current?.value,
+            town: townRef?.current?.value,
             basket: JSON.stringify(basket)
         });
     }
+
+    // if (basket.length === 0) return <EmptyBasket/>
+
 
     return (
         <section>
             <PageContainer>
                 <h2 className={s.pageTitle}>Корзина</h2>
 
-                <div className={s.wrapper}>
+                {basket.length === 0 && <EmptyBasket/>}
+
+                {basket.length !== 0 && <div className={s.wrapper}>
 
                     <div className={s.basket}>
                         {basket.map((item, index) => (
@@ -51,19 +61,32 @@ export const Cart = () => {
                         <Block>
                             <div className={s.formWrapper}>
                                 <div style={{display: 'flex', flexDirection: 'column'}}>
-                                    <label htmlFor="name">Введите имя</label>
-                                    <input type="text" name="name" id={"name"} ref={nameRef}/>
+                                    <label htmlFor="name">Ваше имя</label>
+                                    <input type="text" name="name" id={"name"} ref={nameRef} className={s.input}
+                                           required/>
                                 </div>
                                 <div style={{display: 'flex', flexDirection: 'column'}}>
-                                    <label htmlFor="email">Введите email</label>
-                                    <input type="text" name="email" id={"email"} ref={emailRef}/>
+                                    <label htmlFor="email">Ваш email</label>
+                                    <input type="email" name="email" id={"email"} ref={emailRef} className={s.input}
+                                           required/>
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'column'}}>
+                                    <label htmlFor="name">Ваш телефон</label>
+                                    <input type="text" name="phone" id={"phone"} ref={phoneRef} className={s.input}
+                                           required/>
+                                </div>
+                                <div style={{display: 'flex', flexDirection: 'column'}}>
+                                    <label htmlFor="name">Город получения</label>
+                                    <input type="text" name="town" id={"town"} ref={townRef} className={s.input}
+                                           required/>
                                 </div>
                                 <Button variant={'primary'} fullWidth>Оформить заказ</Button>
                             </div>
                         </Block>
                     </form>
 
-                </div>
+                </div>}
+
 
             </PageContainer>
         </section>
