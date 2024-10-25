@@ -25,6 +25,7 @@
   border: 0;
   border-radius: 4px;
   user-select: none;
+  text-wrap: nowrap;
 
   @media screen and (max-width: 768px) {
     padding: 2px 10px;

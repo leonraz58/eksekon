@@ -4,6 +4,10 @@
     gap: 30px;
     justify-content: center;
 
+    @media screen and (max-width: 992px) {
+      gap: 20px
+    }
+
     li {
       text-wrap: nowrap;
     }

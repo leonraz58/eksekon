@@ -22,10 +22,6 @@ const items = [
         title: 'Страница4',
         href: '#'
     },
-    {
-        title: 'Страница5',
-        href: '#'
-    }
 ]
 
 export const Menu = () => {
