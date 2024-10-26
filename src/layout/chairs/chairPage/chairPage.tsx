@@ -26,17 +26,8 @@ export const ChairPage = () => {
 
     const chair = chairs.find(chair => chair.id === chairId);
 
-    // let initInBasket = false
-    // if (chair?.id) {
-    //     let localStorageData = localStorage.getItem('id')
-    //     if (localStorageData) {
-    //         let ids = JSON.parse(localStorageData)
-    //         initInBasket = !!ids.includes(chair.id)
-    //     }
-    // }
-
-
     const carousel = useRef<AliceCarousel>(null);
+    const carousel2 = useRef<AliceCarousel>(null);
 
     let items
     let items2
@@ -46,8 +37,11 @@ export const ChairPage = () => {
         ))
 
         items2 = chair.images.map((item: string, i: number) => (
-            <div key={i}><img onClick={() => carousel?.current?.slideTo(i)} src={item} alt="" className={s.cover2}/>
-            </div>
+            <img key={i} onClick={() => {
+                carousel?.current?.slideTo(i)
+                carousel2?.current?.slideTo(i)
+            }} src={item} alt="" className={s.cover2}/>
+
         ))
     }
 
@@ -72,7 +66,7 @@ export const ChairPage = () => {
                                 <AliceCarousel items={items} mouseTracking disableDotsControls={true} ref={carousel}/>
                             </div>
                             <div className={s.previewWrapper}>
-                                {items2}
+                                <AliceCarousel items={items2} mouseTracking disableDotsControls={true} autoHeight={true} responsive={{0: {items: 5}}} ref={carousel2} autoWidth={true}/>
                             </div>
 
                         </div>

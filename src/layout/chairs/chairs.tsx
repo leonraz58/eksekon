@@ -33,7 +33,7 @@ export const chairs: Chair[] = [
         title: 'Дизайнерский стул The Molecula Oxygen',
         description: 'Цвет стула может быть выбран из нашего каталога тканей, в наличии более 15 оттенков. Для уточнения информации, свяжитесь с нами удобным для Вас способом.',
         colors: ['yellow'],
-        images: [green4, green3, green2, green1]
+        images: [green4, green3, green2, green1, green4, green3, green2, green1]
     },
     {
         id: '3',
