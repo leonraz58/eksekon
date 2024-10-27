@@ -1,12 +1,12 @@
 import React from 'react';
 import {basketActions, BasketItem} from "../../../utils/basketReducer";
-import {chairs} from "../../chairs/chairs";
 import s from './cart-item.module.scss'
 import {Counter} from "../counter/counter";
 import {Delete} from "../../../assets/icons/delete";
 import {Button} from "../../../components/button/button";
 import {useDispatch} from "react-redux";
 import {Block} from "../../../components/block/block";
+import {chairs} from "../../../utils/state";
 
 type Props = {
     item: BasketItem

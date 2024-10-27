@@ -5,10 +5,10 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import {useRef, useState} from "react";
 import {Link} from "react-router-dom";
-import {Chair} from "../chairs";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../utils/store";
 import {basketActions, BasketItem} from "../../../utils/basketReducer";
+import {Chair} from "../../../utils/state";
 
 type Props = {
     chair: Chair

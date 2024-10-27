@@ -3,7 +3,6 @@ import {PageContainer} from "../../../components/pageContainer/pageContainer";
 import s from './chairPage.module.scss'
 import AliceCarousel from "react-alice-carousel";
 import {Button} from "../../../components/button/button";
-import {chairs} from "../chairs";
 import {Link, useParams} from "react-router-dom";
 import {Block} from "../../../components/block/block";
 import logo from '../../../assets/images/logo.png'
@@ -11,6 +10,7 @@ import {Path} from "../../../components/path/path";
 import {basketActions, BasketItem} from "../../../utils/basketReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../utils/store";
+import {chairs} from "../../../utils/state";
 
 
 export const ChairPage = () => {
