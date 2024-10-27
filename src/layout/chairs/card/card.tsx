@@ -61,15 +61,17 @@ export const Card = ({chair}: Props) => {
                 <p className={s.description}>Цвет стула может быть выбран из нашего каталога тканей, в наличии более 15
                     оттенков. Для уточнения
                     информации, свяжитесь с нами удобным для Вас способом.</p>
-                <div className={s.priceWrapper}>
-                    <span className={s.price1}>15 000 р. </span>
-                    <span className={s.price2}>26 000 р.</span>
-                </div>
-                <div className={s.buttonsWrapper}>
-                    <Button to={`/chairs/${chair.id}`} as={Link} variant={'secondary'}>Подробнее</Button>
-                    {!inBasket && <Button variant={'primary'} onClick={onAddItemToBasket}>Купить</Button>}
-                    {inBasket &&
-                        <Button as={Link} to={'/cart'} variant={'secondary'}>В корзине</Button>}
+                <div className={s.footer}>
+                    <div className={s.priceWrapper}>
+                        <span className={s.price1}>15 000 р. </span>
+                        <span className={s.price2}>26 000 р.</span>
+                    </div>
+                    <div className={s.buttonsWrapper}>
+                        <Button to={`/chairs/${chair.id}`} as={Link} variant={'secondary'}>Подробнее</Button>
+                        {!inBasket && <Button variant={'primary'} onClick={onAddItemToBasket}>Купить</Button>}
+                        {inBasket &&
+                            <Button as={Link} to={'/cart'} variant={'secondary'}>В корзине</Button>}
+                    </div>
                 </div>
             </div>
         </div>
