@@ -19,7 +19,7 @@ export const Chairs = () => {
         filteredChairs = chairs.filter(chair => chair.subtype === subtypeFilter)
     }
     if (modelFilter !== 'all') {
-        filteredChairs = chairs.filter(chair => chair.model === modelFilter)
+        filteredChairs = filteredChairs.filter(chair => chair.model === modelFilter)
     }
 
     return (

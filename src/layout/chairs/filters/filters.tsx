@@ -43,7 +43,7 @@ export const Filters = ({subtypeFilter, setSubtypeFilter, modelFilter, setModelF
         <div className={s.filtersWrapper}>
             <div className={s.filters1plusbasket}>
                 <div className={s.filters1}>
-                    Вид:
+                    <span className={s.filtersLabel}>Вид:</span>
                     {filterList1.map((item, index) => (
                         <Button key={index} className={clsx(s.filter, subtypeFilter === item.value && s.filterActive)} onClick={()=>setSubtypeFilter(item.value)}>{item.text}</Button>
                     ))}
@@ -51,7 +51,7 @@ export const Filters = ({subtypeFilter, setSubtypeFilter, modelFilter, setModelF
             </div>
 
             <div className={s.filters2}>
-                Модели:
+                <span className={s.filtersLabel}>Модели:</span>
                 {filterList2.map((item, index) => (
                     <Button key={index} className={clsx(s.filter, modelFilter === item.value && s.filterActive)} onClick={()=>setModelFilter(item.value)}>{item.text}</Button>
                 ))}
