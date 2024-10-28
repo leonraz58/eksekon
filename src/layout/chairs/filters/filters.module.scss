@@ -59,6 +59,15 @@
 
   &:hover {
     cursor: pointer;
+    background-color: var(--color-accent-300)
+  }
+
+  &:focus-within {
     background-color: var(--color-accent-300);
   }
+
+}
+
+.filterActive {
+  background-color: var(--color-accent-300)
 }

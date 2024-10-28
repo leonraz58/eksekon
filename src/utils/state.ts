@@ -1,8 +1,8 @@
 import CHAIRS from "../assets/images/chairs/export";
 import {info} from "./info";
 
-type ChairType = 'chair' | 'semi-bar-chair' | 'tabouret' | 'bench'
-type ChairModel = 'lines' | 'magnet' | 'alfa' | 'molecula'
+export type ChairType = 'chair' | 'semi-bar-chair' | 'tabouret' | 'bench'
+export type ChairModel = 'lines' | 'magnet' | 'alfa' | 'molecula'
 
 export type Chair = {
     id: string
@@ -486,4 +486,12 @@ export const chairs: Chair[] = [
         subtype: 'tabouret',
         model: 'lines',
     },
+    {
+        id: 'chalfa4',
+        title: 'Деревянный дизайнерский стул "Alfa" (Белый)',
+        description: info.chalfa.description,
+        images: CHAIRS.chalfa4,
+        subtype: 'chair',
+        model: 'alfa',
+    }
 ]
