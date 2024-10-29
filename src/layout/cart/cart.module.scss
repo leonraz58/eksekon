@@ -5,17 +5,26 @@
 .wrapper {
   //padding: 20px;
   display: flex;
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+  }
 }
 
 .basket {
   width: 70%;
   display: flex;
   flex-direction: column;
-  gap: 0
+  gap: 0;
+  @media screen and (max-width: 576px) {
+    width: 100%;
+  }
 }
 
 .form {
   width: 30%;
+  @media screen and (max-width: 576px) {
+    width: 100%;
+  }
 }
 
 .formWrapper {

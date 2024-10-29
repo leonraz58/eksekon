@@ -11,6 +11,10 @@
   color: var(--color-accent-500);
   font-size: 20px;
   border: none;
+  @media screen and (max-width: 576px) {
+    padding: 0px 5px;
+
+  }
 }
 
 .input {

@@ -1,13 +1,19 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  //gap: 10px;
   padding: 20px;
+  @media screen and (max-width: 576px) {
+    padding: 10px;
+  }
 }
 
 .infoWithImage {
   display: flex;
   gap: 10px;
+  @media screen and (max-width: 576px) {
+    gap: 5px
+  }
 }
 
 .cover {
@@ -16,12 +22,31 @@
   object-fit: cover;
   display: block;
   border-radius: 10px;
+  @media screen and (max-width: 576px) {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .info {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.description1 {
+  @media screen and (max-width: 576px) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.description2 {
+  @media screen and (max-width: 576px) {
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-accent-700)
+  }
 }
 
 .iconButton {

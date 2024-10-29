@@ -26,8 +26,8 @@ export const CartItem = ({item}: Props) => {
                     </div>
 
                     <div className={s.info}>
-                        <span>{chair?.title}</span>
-                        <span>id: {chair?.id}</span>
+                        <span className={s.description1}>{chair?.title}</span>
+                        <span className={s.description2}>SKU: {chair?.id}</span>
                         <Counter item={item}/>
                     </div>
                 </div>

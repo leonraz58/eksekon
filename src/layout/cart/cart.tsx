@@ -33,8 +33,6 @@ export const Cart = () => {
         });
     }
 
-    // if (basket.length === 0) return <EmptyBasket/>
-
 
     return (
         <section>
