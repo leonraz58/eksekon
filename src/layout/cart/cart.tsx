@@ -10,12 +10,29 @@ import emailjs from '@emailjs/browser';
 import {Button} from "../../components/button/button";
 import {motion} from "framer-motion"
 import EmptyBasket from "./empty-basket/empty-basket";
+import {chairs} from "../../utils/state";
 
 export const Cart = () => {
 
     useEffect(() => emailjs.init("Ar4Ps6eLj_E1qLW3_"), []);
 
     const basket = useSelector<AppRootStateType, BasketItem[]>(state => state.basket);
+
+    let basketCount = 0
+    let basketSum = 0
+    for (let basketItem of basket) {
+        basketCount = basketCount + basketItem.value;
+        let item = chairs.find(item => item.id === basketItem.id);
+        basketSum = item?.price.current ? basketSum + item.price.current * basketItem.value : basketSum
+    }
+    let tovar = 'товаров'
+    if (basketCount >= 2 && basketCount <= 4) {
+        tovar = 'товара'
+    } else {
+        if (basketCount === 1) {
+            tovar = 'товар'
+        }
+    }
 
     const emailRef = useRef<HTMLInputElement>(null);
     const nameRef = useRef<HTMLInputElement>(null);
@@ -55,9 +72,15 @@ export const Cart = () => {
                             </motion.div>))}
                     </div>
 
+
+
                     <form onSubmit={handleSubmit} className={s.form}>
                         <Block>
                             <div className={s.formWrapper}>
+                                Итого:
+                                <div className={s.totalPrice}>
+                                    <span>{basketCount + ' ' + tovar}</span><span>{basketSum.toLocaleString('ru-RU')} ₽</span>
+                                </div>
                                 <div style={{display: 'flex', flexDirection: 'column'}}>
                                     <label htmlFor="name">Ваше имя</label>
                                     <input type="text" name="name" id={"name"} ref={nameRef} className={s.input}
