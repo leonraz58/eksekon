@@ -17,6 +17,8 @@ export const CartItem = ({item}: Props) => {
     const chair = chairs.find(chair => chair.id === item.id)
     const dispatch = useDispatch()
 
+
+
     return (
         <Block>
             <div className={s.wrapper}>
@@ -31,12 +33,11 @@ export const CartItem = ({item}: Props) => {
                         <Counter item={item}/>
                     </div>
                 </div>
-                <div style={{alignSelf: 'center'}}>
-
-                </div>
-                <div>
+                <div className={s.col3}>
                     <Button className={s.iconButton}
                             onClick={() => dispatch(basketActions.removeItemFromBasket(item.id))}><Delete/></Button>
+                    {chair?.price.current &&
+                        <span className={s.price1}>{(chair?.price.current * item.value).toLocaleString('ru-RU')} р. </span>}
                 </div>
             </div>
         </Block>

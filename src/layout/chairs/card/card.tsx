@@ -63,8 +63,8 @@ export const Card = ({chair}: Props) => {
                     информации, свяжитесь с нами удобным для Вас способом.</p>
                 <div className={s.footer}>
                     <div className={s.priceWrapper}>
-                        <span className={s.price1}>15 000 р. </span>
-                        <span className={s.price2}>26 000 р.</span>
+                        <span className={s.price1}>{chair.price.current.toLocaleString('ru-RU')} р. </span>
+                        <span className={s.price2}>{chair.price.withoutDiscount.toLocaleString('ru-RU')} р.</span>
                     </div>
                     <div className={s.buttonsWrapper}>
                         <Button to={`/chairs/${chair.id}`} as={Link} variant={'secondary'}>Подробнее</Button>
