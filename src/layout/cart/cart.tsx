@@ -11,10 +11,12 @@ import {Button} from "../../components/button/button";
 import {motion} from "framer-motion"
 import EmptyBasket from "./empty-basket/empty-basket";
 import {chairs} from "../../utils/state";
+import {Order} from "./order/order";
 
 export const Cart = () => {
 
-    useEffect(() => emailjs.init("Ar4Ps6eLj_E1qLW3_"), []);
+    const [orderOpen, setOrderOpen] = React.useState<boolean>(false);
+    console.log(orderOpen)
 
     const basket = useSelector<AppRootStateType, BasketItem[]>(state => state.basket);
 
@@ -34,25 +36,9 @@ export const Cart = () => {
         }
     }
 
-    const emailRef = useRef<HTMLInputElement>(null);
-    const nameRef = useRef<HTMLInputElement>(null);
-    const phoneRef = useRef<HTMLInputElement>(null);
-    const townRef = useRef<HTMLInputElement>(null);
-
-    const handleSubmit = (e: any) => {
-        e.preventDefault();
-        emailjs.send("service_di6o1q2", "template_1en6x2g", {
-            name: nameRef?.current?.value,
-            email: emailRef?.current?.value,
-            phone: phoneRef?.current?.value,
-            town: townRef?.current?.value,
-            basket: JSON.stringify(basket)
-        });
-    }
-
-
     return (
         <section>
+            <Order orderSum={basketSum} open={orderOpen} onOpenChange={setOrderOpen} />
             <PageContainer>
                 <h2 className={s.pageTitle}>Корзина</h2>
 
@@ -73,38 +59,17 @@ export const Cart = () => {
                     </div>
 
 
-
-                    <form onSubmit={handleSubmit} className={s.form}>
+                    <div className={s.form}>
                         <Block>
                             <div className={s.formWrapper}>
                                 Итого:
                                 <div className={s.totalPrice}>
                                     <span>{basketCount + ' ' + tovar}</span><span>{basketSum.toLocaleString('ru-RU')} ₽</span>
                                 </div>
-                                <div style={{display: 'flex', flexDirection: 'column'}}>
-                                    <label htmlFor="name">Ваше имя</label>
-                                    <input type="text" name="name" id={"name"} ref={nameRef} className={s.input}
-                                           required/>
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'column'}}>
-                                    <label htmlFor="email">Ваш email</label>
-                                    <input type="email" name="email" id={"email"} ref={emailRef} className={s.input}
-                                           required/>
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'column'}}>
-                                    <label htmlFor="name">Ваш телефон</label>
-                                    <input type="text" name="phone" id={"phone"} ref={phoneRef} className={s.input}
-                                           required/>
-                                </div>
-                                <div style={{display: 'flex', flexDirection: 'column'}}>
-                                    <label htmlFor="name">Город получения</label>
-                                    <input type="text" name="town" id={"town"} ref={townRef} className={s.input}
-                                           required/>
-                                </div>
-                                <Button variant={'primary'} fullWidth>Оформить заказ</Button>
+                                <Button type={'button'} onClick={() => setOrderOpen(true)}>Перейти к оформлению</Button>
                             </div>
                         </Block>
-                    </form>
+                    </div>
 
                 </div>}
 

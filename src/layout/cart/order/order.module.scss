@@ -1,0 +1,39 @@
+.modal {
+  max-width: 500px;
+  width: 100%;
+}
+
+.wrapper {
+  padding: 20px;
+
+  .sumWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    .sum {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .finalSum {
+      font-weight: bold;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .input {
+      height: 40px;
+      border: 1px solid grey;
+    }
+  }
+}
+
+
+
+
+

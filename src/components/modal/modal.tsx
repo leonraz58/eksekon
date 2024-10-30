@@ -4,6 +4,7 @@ import { ComponentPropsWithoutRef, ReactNode } from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import s from './modal.module.scss'
+import clsx from "clsx";
 
 export type ModalProps = {
     children?: ReactNode
@@ -11,14 +12,15 @@ export type ModalProps = {
     open?: boolean
     title?: string
     trigger?: ReactNode
+    className?: string
 } & ComponentPropsWithoutRef<typeof DialogPrimitive.Root>
-export const Modal = ({ children, title, trigger, ...props }: ModalProps) => {
+export const Modal = ({ children, title, trigger, className, ...props }: ModalProps) => {
     return (
         <DialogPrimitive.Root {...props}>
             <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
             <DialogPrimitive.Portal>
                 <DialogPrimitive.Overlay className={s.overlay} />
-                <DialogPrimitive.Content className={s.content}>
+                <DialogPrimitive.Content className={clsx(s.content, className)}>
                     <div className={s.header}>
                         {/*<DialogPrimitive.Title asChild>*/}
                         {/*        <div>{title}</div>*/}

@@ -36,8 +36,6 @@ export const Filters = ({subtypeFilter, setSubtypeFilter, modelFilter, setModelF
         {text: "Molecula", value: 'molecula'}
     ]
 
-    //const filterList2 = ["Alpha", "Lines", "Magnet", "Molecula"]
-
 
     return (
         <div className={s.filtersWrapper}>
