@@ -1,13 +1,14 @@
 .alice-carousel__dots {
     /*margin: 30px 3px 5px;*/
-    margin: 0;
+    margin: 0 auto;
     /*padding: 0;*/
     /*list-style: none;*/
     /*text-align: center;*/
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    width: 100%;
 }
 
 .alice-carousel__prev-btn, .alice-carousel__next-btn {
@@ -45,4 +46,14 @@
 .alice-carousel__prev-btn-item,
 .alice-carousel__next-btn-item {
     color: #ffffff;
+}
+
+.alice-carousel__dots-item:not(.__custom):not(:last-child) {
+
+    margin-right: 10px;
+
+    @media screen and (max-width: 768px) {
+        margin-right: 10px;
+    }
+
 }

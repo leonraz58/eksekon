@@ -51,7 +51,7 @@ export const Card = ({chair}: Props) => {
                 {/*<div>*/}
                 {/*    <img src={images['1']['yellow'][0] ?? image} alt="" className={s.cover}/>*/}
                 {/*</div>*/}
-                <AliceCarousel items={items} disableDotsControls={true}
+                <AliceCarousel items={items} disableDotsControls={false} disableButtonsControls={true}
                                autoPlay={false} ref={carousel}/>
                 {/*<button onClick={()=>setCurrentIndex(1)}>g</button>*/}
 

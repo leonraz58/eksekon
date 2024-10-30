@@ -27,7 +27,7 @@ const MobileMenuPopup = styled.div<{isOpen: boolean}>`
     //right: 0;
     //bottom: 0;
     z-index: 10;
-    width: 70%;
+    width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.9);
     display: flex;
