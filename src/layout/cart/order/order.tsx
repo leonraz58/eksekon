@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../utils/store";
 import {BasketItem} from "../../../utils/basketReducer";
+import {Loader} from "../../../components/loader/loader";
 
 type deliveryType = "СДЭК" | "Почта России" | 'ПЭК' | 'Деловые линии' | 'Самовывоз (г. Пенза, ул. Дружбы 6, технопарк Яблочков)' | undefined
 
@@ -21,6 +22,8 @@ type Props = {
 export const Order = ({orderSum, ...modalProps}: Props) => {
 
     const [deliveryChosen, setDeliveryChosen] = useState<deliveryType>(undefined)
+    const [isOrderDone, setIsOrderDone] = useState(false)
+    const [isOrderLoading, setIsOrderLoading] = useState(false)
 
     const delivery: deliveryItemType[] = [
         {
@@ -59,22 +62,40 @@ export const Order = ({orderSum, ...modalProps}: Props) => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
+        setIsOrderLoading(true)
         emailjs.send("service_di6o1q2", "template_1en6x2g", {
             name: nameRef?.current?.value,
             email: emailRef?.current?.value,
             phone: phoneRef?.current?.value,
             town: townRef?.current?.value,
-            basket: JSON.stringify(basket)
-        });
+            basket: JSON.stringify(basket),
+            delivery: deliveryChosen
+        }).then(res => {
+            if (res.status === 200) {
+                setIsOrderDone(true)
+                setIsOrderLoading(false)
+            }
+        }).catch(e => {
+                console.log(e)
+            }
+        )
+
     }
+
+
 
     return (
         <Modal className={s.modal} {...modalProps}>
-            <div className={s.wrapper}>
+            {isOrderDone && <div className={s.wrapper}>Ваша заявка принята. Наш менеджер свяжется с вами в самое ближайшее время.</div>}
+            {isOrderLoading && <div className={s.loader}><Loader/><span>Отправляем вашу заявку</span></div>}
+            {!isOrderDone && !isOrderLoading && <div className={s.wrapper}>
+                <div>После оформления заказа , мы обязательно свяжемся с вами для уточнения всех деталей оплаты и доставки.</div>
                 <div className={s.sumWrapper}>
                     <span className={s.sum}>Сумма заказа: {orderSum.toLocaleString('ru-RU')} ₽</span>
-                    {!!deliveryValue && <span className={s.sum}>{deliveryChosen}: {deliveryValue.toLocaleString('ru-RU')} ₽</span>}
-                    {!!deliveryValue && <span className={s.finalSum}>Итого: {(orderSum + deliveryValue).toLocaleString('ru-RU')} ₽</span>}
+                    {!!deliveryValue &&
+                        <span className={s.sum}>{deliveryChosen}: {deliveryValue.toLocaleString('ru-RU')} ₽</span>}
+                    {!!deliveryValue && <span
+                        className={s.finalSum}>Итого: {(orderSum + deliveryValue).toLocaleString('ru-RU')} ₽</span>}
                 </div>
                 <form onSubmit={handleSubmit} className={s.form}>
 
@@ -109,9 +130,9 @@ export const Order = ({orderSum, ...modalProps}: Props) => {
                             </div>)
                         )}
                     </fieldset>
-                    <Button variant={'primary'} fullWidth>Оформить заказ</Button>
+                    <Button variant={'primary'} fullWidth>{isOrderLoading ? 'Loading' : 'Оформить заказ'}</Button>
                 </form>
-            </div>
+            </div>}
         </Modal>
     );
 };

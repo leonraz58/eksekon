@@ -3,6 +3,17 @@
   width: 100%;
 }
 
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 30px;
+}
+
 .wrapper {
   padding: 20px;
 
