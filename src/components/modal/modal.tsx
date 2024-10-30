@@ -22,12 +22,12 @@ export const Modal = ({ children, title, trigger, className, ...props }: ModalPr
                 <DialogPrimitive.Overlay className={s.overlay} />
                 <DialogPrimitive.Content className={clsx(s.content, className)}>
                     <div className={s.header}>
-                        {/*<DialogPrimitive.Title asChild>*/}
-                        {/*        <div>{title}</div>*/}
-                        {/*</DialogPrimitive.Title>*/}
-                        <DialogPrimitive.Close className={s.closeButton}>
-                            <div>{" ← Назад"}</div>
-                        </DialogPrimitive.Close>
+                        <DialogPrimitive.Title asChild>
+                                <div>{title}</div>
+                        </DialogPrimitive.Title>
+                        {/*<DialogPrimitive.Close className={s.closeButton}>*/}
+                        {/*    <div>{" ← Назад"}</div>*/}
+                        {/*</DialogPrimitive.Close>*/}
                         <DialogPrimitive.Close className={s.closeButton}>
                             X{/*x<Close height={24} width={24} />*/}
                         </DialogPrimitive.Close>

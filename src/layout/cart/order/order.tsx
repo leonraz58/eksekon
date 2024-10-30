@@ -7,8 +7,16 @@ import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../utils/store";
 import {BasketItem} from "../../../utils/basketReducer";
 import {Loader} from "../../../components/loader/loader";
+import orderConfirmed from './../../../assets/images/confirmed.png'
+import {Link} from "react-router-dom";
 
-type deliveryType = "СДЭК" | "Почта России" | 'ПЭК' | 'Деловые линии' | 'Самовывоз (г. Пенза, ул. Дружбы 6, технопарк Яблочков)' | undefined
+type deliveryType =
+    "СДЭК"
+    | "Почта России"
+    | 'ПЭК'
+    | 'Деловые линии'
+    | 'Самовывоз (г. Пенза, ул. Дружбы 6, технопарк Яблочков)'
+    | undefined
 
 type deliveryItemType = {
     value: number
@@ -83,13 +91,19 @@ export const Order = ({orderSum, ...modalProps}: Props) => {
     }
 
 
-
     return (
         <Modal className={s.modal} {...modalProps}>
-            {isOrderDone && <div className={s.wrapper}>Ваша заявка принята. Наш менеджер свяжется с вами в самое ближайшее время.</div>}
-            {isOrderLoading && <div className={s.loader}><Loader/><span>Отправляем вашу заявку</span></div>}
+            {isOrderDone &&
+                <div className={s.orderConfirmedWrapper}>
+                    <img src={orderConfirmed} alt="order confirmed" className={s.orderConfirmed}/>
+                    Ваша заявка принята. Наш менеджер свяжется с вами в самое ближайшее время.
+                    <Button as={Link} to={'/'} variant={'primary'}>Вернуться на главную</Button>
+                </div>}
+            {isOrderLoading && <div className={s.loader}><Loader/><div>Отправляем вашу заявку</div></div>}
             {!isOrderDone && !isOrderLoading && <div className={s.wrapper}>
-                <div>После оформления заказа , мы обязательно свяжемся с вами для уточнения всех деталей оплаты и доставки.</div>
+                <div className={s.description}>После оформления заказа , мы обязательно свяжемся с вами для уточнения всех деталей оплаты и
+                    доставки.
+                </div>
                 <div className={s.sumWrapper}>
                     <span className={s.sum}>Сумма заказа: {orderSum.toLocaleString('ru-RU')} ₽</span>
                     {!!deliveryValue &&

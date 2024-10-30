@@ -38,7 +38,7 @@ export const Cart = () => {
 
     return (
         <section>
-            <Order orderSum={basketSum} open={orderOpen} onOpenChange={setOrderOpen} />
+            <Order orderSum={basketSum} open={orderOpen} onOpenChange={setOrderOpen} title={'Оформление заказа'}/>
             <PageContainer>
                 <h2 className={s.pageTitle}>Корзина</h2>
 
