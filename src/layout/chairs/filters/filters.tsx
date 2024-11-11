@@ -5,9 +5,9 @@ import {Button} from "../../../components/button/button";
 import clsx from "clsx";
 
 type Props = {
-    subtypeFilter: ChairType | 'all'
+    subtypeFilter: string
     setSubtypeFilter: (subtypeFilter: ChairType | 'all') => void;
-    modelFilter: ChairModel | 'all'
+    modelFilter: string
     setModelFilter: (modelFilter: ChairModel | 'all') => void;
 }
 

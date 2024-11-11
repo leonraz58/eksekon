@@ -1,18 +1,30 @@
-
-
 import {Card} from "./card/card";
 import s from './chairs.module.scss'
 import {PageContainer} from "../../components/pageContainer/pageContainer";
 import {Filters} from "./filters/filters";
 import {ChairModel, chairs, ChairType} from "../../utils/state";
-import {useState} from "react";
+import {FilterPreview} from "./filterPreview/filterPreview";
+import {useSearchParams} from "react-router-dom";
 
 export const Chairs = () => {
 
-    const [subtypeFilter, setSubtypeFilter] = useState<ChairType | 'all'>('all')
-    const [modelFilter, setModelFilter] = useState<ChairModel | 'all'>('all')
+    const [searchParams, setSearchParams] = useSearchParams()
+    let subtypeFilter = searchParams.get('subtypeFilter') || 'all'
+    let modelFilter = searchParams.get('modelFilter') || 'all'
 
-    console.log(subtypeFilter)
+    //const [subtypeFilter, setSubtypeFilter] = useState<ChairType | 'all'>('all')
+    //const [modelFilter, setModelFilter] = useState<ChairModel | 'all'>('all')
+
+
+    const setSubtypeFilter = (subtypeFilter: ChairType | 'all') => {
+        searchParams.set('subtypeFilter', subtypeFilter)
+        setSearchParams(searchParams)
+    }
+
+    const setModelFilter = (modelFilter: ChairModel | 'all') => {
+        searchParams.set('modelFilter', modelFilter)
+        setSearchParams(searchParams)
+    }
 
     let filteredChairs = chairs
     if (subtypeFilter !== 'all') {
@@ -25,7 +37,7 @@ export const Chairs = () => {
     return (
         <section className={s.section}>
             <PageContainer>
-                <Filters subtypeFilter={subtypeFilter} setSubtypeFilter={setSubtypeFilter} modelFilter={modelFilter} setModelFilter={setModelFilter} />
+                <Filters subtypeFilter={subtypeFilter} setSubtypeFilter={setSubtypeFilter} modelFilter={modelFilter} setModelFilter={setModelFilter} />change
                 <div className={s.cardWrapper}>
                     {filteredChairs.map(chair => {
                         return (<Card key={chair.id} chair={chair}/>)
