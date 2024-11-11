@@ -37,7 +37,8 @@ export const Chairs = () => {
     return (
         <section className={s.section}>
             <PageContainer>
-                <Filters subtypeFilter={subtypeFilter} setSubtypeFilter={setSubtypeFilter} modelFilter={modelFilter} setModelFilter={setModelFilter} />change
+                <Filters subtypeFilter={subtypeFilter} setSubtypeFilter={setSubtypeFilter} modelFilter={modelFilter} setModelFilter={setModelFilter} />
+                <FilterPreview filter={modelFilter}/>
                 <div className={s.cardWrapper}>
                     {filteredChairs.map(chair => {
                         return (<Card key={chair.id} chair={chair}/>)
