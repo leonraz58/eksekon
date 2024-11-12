@@ -9,7 +9,7 @@ import {useSearchParams} from "react-router-dom";
 export const Chairs = () => {
 
     const [searchParams, setSearchParams] = useSearchParams()
-    let subtypeFilter = searchParams.get('subtypeFilter') || 'all'
+    //let subtypeFilter = searchParams.get('subtypeFilter') || 'all'
     let modelFilter = searchParams.get('modelFilter') || 'all'
 
     //const [subtypeFilter, setSubtypeFilter] = useState<ChairType | 'all'>('all')
@@ -26,9 +26,9 @@ export const Chairs = () => {
     }
 
     let filteredChairs = chairs
-    if (subtypeFilter !== 'all') {
-        filteredChairs = chairs.filter(chair => chair.subtype === subtypeFilter)
-    }
+    // if (subtypeFilter !== 'all') {
+    //     filteredChairs = chairs.filter(chair => chair.subtype === subtypeFilter)
+    // }
     if (modelFilter !== 'all') {
         filteredChairs = filteredChairs.filter(chair => chair.model === modelFilter)
     }
@@ -36,7 +36,7 @@ export const Chairs = () => {
     return (
         <section className={s.section}>
             <PageContainer>
-                <Filters subtypeFilter={subtypeFilter} setSubtypeFilter={setSubtypeFilter} modelFilter={modelFilter} setModelFilter={setModelFilter} />
+                <Filters modelFilter={modelFilter} setModelFilter={setModelFilter} />
                 {modelFilter !== 'all' && <FilterPreview filter={modelFilter}/>}
                 <div className={s.cardWrapper}>
                     {filteredChairs.map(chair => {
