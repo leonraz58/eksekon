@@ -2,7 +2,7 @@ import CHAIRS from "../assets/images/chairs/export";
 import {info} from "./info";
 
 export type ChairType = 'chair' | 'semi-bar-chair' | 'tabouret' | 'bench'
-export type ChairModel = 'lines' | 'magnet' | 'alfa' | 'molecula'
+export type ChairModel = 'lines' | 'magnet' | 'alfa' | 'molecula' | 'all'
 
 export type Chair = {
     id: string

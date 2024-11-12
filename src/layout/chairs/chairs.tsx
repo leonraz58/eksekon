@@ -15,7 +15,6 @@ export const Chairs = () => {
     //const [subtypeFilter, setSubtypeFilter] = useState<ChairType | 'all'>('all')
     //const [modelFilter, setModelFilter] = useState<ChairModel | 'all'>('all')
 
-
     const setSubtypeFilter = (subtypeFilter: ChairType | 'all') => {
         searchParams.set('subtypeFilter', subtypeFilter)
         setSearchParams(searchParams)
@@ -38,7 +37,7 @@ export const Chairs = () => {
         <section className={s.section}>
             <PageContainer>
                 <Filters subtypeFilter={subtypeFilter} setSubtypeFilter={setSubtypeFilter} modelFilter={modelFilter} setModelFilter={setModelFilter} />
-                <FilterPreview filter={modelFilter}/>
+                {modelFilter !== 'all' && <FilterPreview filter={modelFilter}/>}
                 <div className={s.cardWrapper}>
                     {filteredChairs.map(chair => {
                         return (<Card key={chair.id} chair={chair}/>)
