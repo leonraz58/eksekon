@@ -7,6 +7,11 @@ import {PageContainer} from "../../components/pageContainer/pageContainer";
 import {Carousel} from "../../components/carousel/Carousel";
 import {CategoryCard} from "./categoryCard/categoryCard";
 
+import lines from './images/lines.jpg'
+import magnet from './images/magnet.jpg'
+import molecula from './images/molecula.jpg'
+import alfa from './images/alfa.jpg'
+
 export const Main = () => {
 
     return <section>
@@ -26,6 +31,7 @@ export const Main = () => {
                 {/*                  images={[imageSlider, imageSlider2, imageSlider, imageSlider2]}/>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
+                <h2 className={s.title}>Каталог Eksekon</h2>
                 <div style={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -35,12 +41,10 @@ export const Main = () => {
                     height: '400px',
                     marginTop: '10px'
                 }}>
-                    <CategoryCard image={imageSlider} text={'text text text'}/>
-                    <CategoryCard image={imageSlider} text={'text text text'}/>
-                    <CategoryCard image={imageSlider} text={'text text text'}/>
-                    <CategoryCard image={imageSlider} text={'text text text'}/>
-                    <CategoryCard image={imageSlider} text={'text text text'}/>
-                    <CategoryCard image={imageSlider} text={'text text text'}/>
+                    <CategoryCard image={lines} text={'Коллекция Lines'} href={'/chairs?modelFilter=lines'}/>
+                    <CategoryCard image={magnet} text={'Коллекция Magnet'} href={'/chairs?modelFilter=magnet'}/>
+                    <CategoryCard image={molecula} text={'Коллекция Molecula'} href={'/chairs?modelFilter=molecula'}/>
+                    <CategoryCard image={alfa} text={'Коллекция Alfa'} href={'/chairs?modelFilter=alfa'}/>
                 </div>
             </PageContainer>
         </div>
