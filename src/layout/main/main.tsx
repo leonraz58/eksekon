@@ -11,6 +11,7 @@ import lines from './images/lines.jpg'
 import magnet from './images/magnet.jpg'
 import molecula from './images/molecula.jpg'
 import alfa from './images/alfa.jpg'
+import {About} from "./about/about";
 
 export const Main = () => {
 
@@ -31,6 +32,7 @@ export const Main = () => {
                 {/*                  images={[imageSlider, imageSlider2, imageSlider, imageSlider2]}/>*/}
                 {/*    </div>*/}
                 {/*</div>*/}
+                <About/>
                 <h2 className={s.title}>Каталог Eksekon</h2>
                 <div style={{
                     display: "flex",
